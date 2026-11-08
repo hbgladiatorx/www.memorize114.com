@@ -1,0 +1,573 @@
+{
+ "note": "Teaching layer for Sūrat al-Mursalāt. Hooks, meanings, watch-outs and chunking are the app author's own aids, not a published translation or tafsīr. Qurʾānic quotations are copied from the KFGQPC Hafs v18 text.",
+ "sections": [
+  {
+   "id": "A",
+   "from": 1,
+   "to": 7,
+   "title": "The oaths and their answer",
+   "ar": "القَسَمُ وجوابُه",
+   "color": "#2F7D5B"
+  },
+  {
+   "id": "B",
+   "from": 8,
+   "to": 15,
+   "title": "When the Day of Sorting comes",
+   "ar": "علاماتُ يومِ الفصل",
+   "color": "#2D5F8E"
+  },
+  {
+   "id": "C",
+   "from": 16,
+   "to": 28,
+   "title": "Three proofs: history, birth, earth",
+   "ar": "ثلاثةُ براهين: التاريخ والخَلق والأرض",
+   "color": "#0F766E"
+  },
+  {
+   "id": "D",
+   "from": 29,
+   "to": 40,
+   "title": "Scenes of that Day",
+   "ar": "مشاهدُ ذلك اليوم",
+   "color": "#B23A5E"
+  },
+  {
+   "id": "E",
+   "from": 41,
+   "to": 50,
+   "title": "The God-fearing and the deniers",
+   "ar": "المتّقون والمكذِّبون",
+   "color": "#B26B14"
+  }
+ ],
+ "threads": [
+  {
+   "verses": [
+    15,
+    19,
+    24,
+    28,
+    34,
+    37,
+    40,
+    45,
+    47,
+    49
+   ],
+   "label": "وَيۡلٞ يَوۡمَئِذٖ لِّلۡمُكَذِّبِينَ “Woe to the deniers on that day” — ten times",
+   "text": "The refrain closes every scene. The gaps between them run 4 · 5 · 4 · 6 · 3 · 3 · 5 · 2 · 2 verses — the scenes get shorter and the refrain comes faster as the sūrah ends.",
+   "label_ar": "﴿وَيۡلٞ يَوۡمَئِذٖ لِّلۡمُكَذِّبِينَ﴾ — عشر مرّات",
+   "text_ar": "اللازمة تختم كلَّ مشهد. والمسافات بينها: ٤ · ٥ · ٤ · ٦ · ٣ · ٣ · ٥ · ٢ · ٢ آيات؛ تقصر المشاهد وتتسارع اللازمة كلّما اقتربت السورة من خاتمتها."
+  },
+  {
+   "verses": [
+    16,
+    20,
+    25
+   ],
+   "label": "أَلَمۡ “Did We not …?” — three proofs",
+   "text": "أَلَمۡ نُهۡلِكِ “Did We not destroy” (history), أَلَمۡ نَخۡلُقكُّم “Did We not create you” (birth), أَلَمۡ نَجۡعَلِ “Did We not make” (the earth). Three questions, three proofs, each sealed by the refrain.",
+   "label_ar": "﴿أَلَمۡ﴾ — ثلاثة براهين",
+   "text_ar": "﴿أَلَمۡ نُهۡلِكِ﴾ (التاريخ)، ﴿أَلَمۡ نَخۡلُقكُّم﴾ (الخَلق)، ﴿أَلَمۡ نَجۡعَلِ﴾ (الأرض): ثلاثة أسئلة لثلاثة براهين، يُختم كلٌّ منها باللازمة."
+  },
+  {
+   "verses": [
+    13,
+    14,
+    38
+   ],
+   "label": "يَوۡمِ ٱلۡفَصۡلِ “the Day of Sorting”",
+   "text": "Named in v13 and v14, then announced in v38: هَٰذَا يَوۡمُ ٱلۡفَصۡلِ “This is the Day of Sorting”.",
+   "label_ar": "يوم الفصل",
+   "text_ar": "يُسمّى في الآيتين ١٣ و١٤، ثم يُعلَن في الآية ٣٨: ﴿هَٰذَا يَوۡمُ ٱلۡفَصۡلِ﴾."
+  },
+  {
+   "verses": [
+    29,
+    30
+   ],
+   "label": "ٱنطَلِقُوٓاْ “Go on!” — twice",
+   "text": "The same command opens two verses in a row: first to what they denied, then to a shade of three branches.",
+   "label_ar": "﴿ٱنطَلِقُوٓاْ﴾ — مرّتان",
+   "text_ar": "الأمر نفسه يفتتح آيتين متتاليتين: إلى ما كذّبوا به، ثم إلى ظلٍّ ذي ثلاث شُعَب."
+  },
+  {
+   "verses": [
+    35,
+    38
+   ],
+   "label": "هَٰذَا يَوۡمُ “This is a day …” — twice",
+   "text": "هَٰذَا يَوۡمُ لَا يَنطِقُونَ “a day they will not speak” (v35), هَٰذَا يَوۡمُ ٱلۡفَصۡلِ “the Day of Sorting” (v38).",
+   "label_ar": "﴿هَٰذَا يَوۡمُ﴾ — مرّتان",
+   "text_ar": "﴿هَٰذَا يَوۡمُ لَا يَنطِقُونَ﴾ في الآية ٣٥، و﴿هَٰذَا يَوۡمُ ٱلۡفَصۡلِ﴾ في الآية ٣٨."
+  },
+  {
+   "verses": [
+    30,
+    41
+   ],
+   "label": "ظِلّ / ظِلَٰل “shade”",
+   "text": "The deniers get ظِلّٖ ذِي ثَلَٰثِ شُعَبٖ “a shade of three branches” that gives no shade (v30); the God-fearing get ظِلَٰلٖ وَعُيُونٖ “shades and springs” (v41).",
+   "label_ar": "الظلّ والظلال",
+   "text_ar": "للمكذّبين ﴿ظِلّٖ ذِي ثَلَٰثِ شُعَبٖ﴾ لا يُظِلّ (الآية ٣٠)، وللمتّقين ﴿ظِلَٰلٖ وَعُيُونٖ﴾ (الآية ٤١)."
+  },
+  {
+   "verses": [
+    43,
+    46
+   ],
+   "label": "كُلُواْ “Eat” — twice, two meanings",
+   "text": "To the God-fearing: كُلُواْ وَٱشۡرَبُواْ هَنِيٓـَٔۢا “eat and drink in health” (v43). To the deniers: كُلُواْ وَتَمَتَّعُواْ قَلِيلًا “eat and enjoy a little” (v46).",
+   "label_ar": "﴿كُلُواْ﴾ — مرّتان بمعنيين",
+   "text_ar": "للمتّقين: ﴿كُلُواْ وَٱشۡرَبُواْ هَنِيٓـَٔۢا﴾ (الآية ٤٣)، وللمكذّبين: ﴿كُلُواْ وَتَمَتَّعُواْ قَلِيلًا﴾ (الآية ٤٦)."
+  }
+ ],
+ "verses": {
+  "1": {
+   "icon": "➶",
+   "anchor": 0,
+   "anchor_en": "by those sent forth",
+   "hook": "Oath 1 — the ones sent out, one after another.",
+   "hook_ar": "القَسَم الأول: المُرسَلات تتتابع.",
+   "mean_ar": "أُقسِمُ بالمُرسَلات تتابعًا (قيل: الملائكة، وقيل: الرياح).",
+   "watch": "Five oaths open the sūrah, and their joining letters run و · ف · و · ف · ف: وَٱلۡمُرۡسَلَٰتِ، فَٱلۡعَٰصِفَٰتِ، وَٱلنَّٰشِرَٰتِ، فَٱلۡفَٰرِقَٰتِ، فَٱلۡمُلۡقِيَٰتِ. Say the pattern “wa-fa, wa-fa-fa” once before reciting.",
+   "watch_ar": "خمسة أقسام تفتتح السورة، وحروف عطفها: و · ف · و · ف · ف: ﴿وَٱلۡمُرۡسَلَٰتِ﴾، ﴿فَٱلۡعَٰصِفَٰتِ﴾، ﴿وَٱلنَّٰشِرَٰتِ﴾، ﴿فَٱلۡفَٰرِقَٰتِ﴾، ﴿فَٱلۡمُلۡقِيَٰتِ﴾. ردِّد النمط «وَ فَ، وَ فَ فَ» قبل التسميع."
+  },
+  "2": {
+   "icon": "≋",
+   "anchor": 0,
+   "anchor_en": "storming",
+   "hook": "Oath 2 — storming on (fa).",
+   "hook_ar": "القسم الثاني: العاصفات (بالفاء).",
+   "mean_ar": "فالعاصفاتِ في سرعتها عصفًا شديدًا."
+  },
+  "3": {
+   "icon": "⤢",
+   "anchor": 0,
+   "anchor_en": "spreading",
+   "hook": "Oath 3 — spreading out (wa).",
+   "hook_ar": "القسم الثالث: الناشرات (بالواو).",
+   "mean_ar": "والناشراتِ نشرًا."
+  },
+  "4": {
+   "icon": "⫽",
+   "anchor": 0,
+   "anchor_en": "separating",
+   "hook": "Oath 4 — separating (fa).",
+   "hook_ar": "القسم الرابع: الفارقات (بالفاء).",
+   "mean_ar": "فالفارقاتِ بين الحقّ والباطل فرقًا."
+  },
+  "5": {
+   "icon": "✉",
+   "anchor": 0,
+   "anchor_en": "casting a reminder",
+   "hook": "Oath 5 — delivering the reminder (fa).",
+   "hook_ar": "القسم الخامس: المُلقيات الذِّكرَ (بالفاء).",
+   "mean_ar": "فالمُلقياتِ الذِّكرَ (الوحي) إلى الأنبياء."
+  },
+  "6": {
+   "icon": "⚑",
+   "anchor": 0,
+   "anchor_en": "an excuse",
+   "hook": "Why the reminder? Excuse or warning.",
+   "hook_ar": "لماذا الذِّكر؟ إعذارًا أو إنذارًا.",
+   "mean_ar": "إعذارًا من الله إلى خلقه، أو إنذارًا لهم.",
+   "watch": "Two rhyming nouns: عُذۡرًا أَوۡ نُذۡرًا “as excuse or warning” — ʿain first, then nūn.",
+   "watch_ar": "كلمتان متجانستان: ﴿عُذۡرًا أَوۡ نُذۡرًا﴾ — العين أولًا ثم النون."
+  },
+  "7": {
+   "icon": "◆",
+   "anchor": 2,
+   "anchor_en": "will surely befall",
+   "hook": "The answer to all five oaths: what you are promised will happen.",
+   "hook_ar": "جواب الأقسام الخمسة: ما تُوعَدون واقعٌ لا محالة.",
+   "mean_ar": "إنّ الذي تُوعَدون به من البعث والجزاء لواقعٌ لا محالة.",
+   "watch": "This verse is the point of the oaths: إِنَّمَا تُوعَدُونَ لَوَٰقِعٞ “what you are promised will surely befall”. Everything after it shows how.",
+   "watch_ar": "هذه الآية هي جواب القسم: ﴿إِنَّمَا تُوعَدُونَ لَوَٰقِعٞ﴾، وكلّ ما بعدها بيانٌ لكيفيّته."
+  },
+  "8": {
+   "icon": "✷",
+   "anchor": 1,
+   "anchor_en": "the stars",
+   "hook": "Sign 1 — the stars go out.",
+   "hook_ar": "العلامة الأولى: النجوم يُطمَس نورها.",
+   "mean_ar": "فإذا النجوم مُحي نورُها.",
+   "watch": "The four signs open فَإِذَا, then وَإِذَا three times. Compare al-Takwīr 81:2 وَإِذَا ٱلنُّجُومُ ٱنكَدَرَتۡ “when the stars are dimmed” — same subject, different verb. Here: طُمِسَتۡ “are blotted out”.",
+   "watch_ar": "العلامات الأربع تبدأ بـ«فإذا» ثم «وإذا» ثلاث مرّات. وقارن [التكوير: ٢] ﴿وَإِذَا ٱلنُّجُومُ ٱنكَدَرَتۡ﴾؛ الموضوع نفسه بفعلٍ آخر. وهنا ﴿طُمِسَتۡ﴾."
+  },
+  "9": {
+   "icon": "◠",
+   "anchor": 1,
+   "anchor_en": "the sky",
+   "hook": "Sign 2 — the sky splits open.",
+   "hook_ar": "العلامة الثانية: السماء تنشقّ.",
+   "mean_ar": "وإذا السماء انشقّت."
+  },
+  "10": {
+   "icon": "▲",
+   "anchor": 1,
+   "anchor_en": "the mountains",
+   "hook": "Sign 3 — the mountains blown away.",
+   "hook_ar": "العلامة الثالثة: الجبال تُنسَف.",
+   "mean_ar": "وإذا الجبال قُلعت ونُسفت.",
+   "watch": "Here نُسِفَتۡ “are blown away”; al-Takwīr 81:3 has وَإِذَا ٱلۡجِبَالُ سُيِّرَتۡ “when the mountains are set moving”.",
+   "watch_ar": "هنا ﴿نُسِفَتۡ﴾، وفي [التكوير: ٣] ﴿وَإِذَا ٱلۡجِبَالُ سُيِّرَتۡ﴾."
+  },
+  "11": {
+   "icon": "⌚",
+   "anchor": 1,
+   "anchor_en": "the messengers",
+   "hook": "Sign 4 — the messengers given their hour.",
+   "hook_ar": "العلامة الرابعة: الرسل يُعيَّن وقتهم.",
+   "mean_ar": "وإذا الرسل عُيِّن لهم وقتُهم ليشهدوا على أممهم."
+  },
+  "12": {
+   "icon": "?",
+   "anchor": 2,
+   "anchor_en": "deferred",
+   "hook": "A question: postponed for which day?",
+   "hook_ar": "سؤال: لأيّ يومٍ أُخِّرت؟",
+   "mean_ar": "لأيّ يومٍ عظيمٍ أُخِّرت هذه الأمور؟"
+  },
+  "13": {
+   "icon": "⚖",
+   "anchor": 1,
+   "anchor_en": "the Sorting",
+   "hook": "The answer: the Day of Sorting.",
+   "hook_ar": "الجواب: ليوم الفصل.",
+   "mean_ar": "ليومِ الفصلِ بين الخلائق."
+  },
+  "14": {
+   "icon": "!",
+   "anchor": 1,
+   "anchor_en": "will tell you",
+   "hook": "And what will tell you what it is?",
+   "hook_ar": "وما أدراك ما هو؟",
+   "mean_ar": "وما أعلمك ما يومُ الفصل في عِظَمه وهَوله؟",
+   "watch": "Al-Infiṭār 82:17 has the same frame with another name: وَمَآ أَدۡرَىٰكَ مَا يَوۡمُ ٱلدِّينِ “what will tell you what the Day of Judgement is”. Here it is ٱلۡفَصۡلِ “the Sorting”, picking up the word from v13.",
+   "watch_ar": "في [الانفطار: ١٧] الصيغة نفسها باسمٍ آخر: ﴿وَمَآ أَدۡرَىٰكَ مَا يَوۡمُ ٱلدِّينِ﴾. وهنا ﴿ٱلۡفَصۡلِ﴾، تكرارًا لكلمة الآية ١٣."
+  },
+  "15": {
+   "icon": "①",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 1 of 10 — after the Day of Sorting is named.",
+   "hook_ar": "اللازمة ١ من ١٠ — بعد تسمية يوم الفصل.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين.",
+   "watch": "The refrain appears 10 times here (vv 15, 19, 24, 28, 34, 37, 40, 45, 47, 49) and once more in the Qurʾān as the same words, al-Muṭaffifīn 83:10. Al-Ṭūr 52:11 begins with fa: فَوَيۡلٞ يَوۡمَئِذٖ لِّلۡمُكَذِّبِينَ. In al-Mursalāt it never has fa.",
+   "watch_ar": "اللازمة هنا عشر مرّات (الآيات ١٥، ١٩، ٢٤، ٢٨، ٣٤، ٣٧، ٤٠، ٤٥، ٤٧، ٤٩)، وبلفظها في [المطففين: ١٠]. أمّا [الطور: ١١] فبالفاء: ﴿فَوَيۡلٞ يَوۡمَئِذٖ لِّلۡمُكَذِّبِينَ﴾. ولا فاء لها في المرسلات أبدًا."
+  },
+  "16": {
+   "icon": "⌂",
+   "anchor": 1,
+   "anchor_en": "destroy",
+   "hook": "Proof 1 (history) — the first nations destroyed.",
+   "hook_ar": "البرهان الأول (التاريخ): إهلاك الأوّلين.",
+   "mean_ar": "ألم نُهلك الأممَ الأولى المكذِّبة؟"
+  },
+  "17": {
+   "icon": "↳",
+   "anchor": 1,
+   "anchor_en": "We make follow",
+   "hook": "…then the later ones after them.",
+   "hook_ar": "…ثم نُتبعهم الآخِرين.",
+   "mean_ar": "ثم نُلحِق بهم مَن جاء بعدهم من المكذِّبين.",
+   "watch": "ٱلۡأَوَّلِينَ “the former” (v16) then ٱلۡأٓخِرِينَ “the later” (v17) — a pair.",
+   "watch_ar": "﴿ٱلۡأَوَّلِينَ﴾ في الآية ١٦، ثم ﴿ٱلۡأٓخِرِينَ﴾ في الآية ١٧: زوجٌ متقابل."
+  },
+  "18": {
+   "icon": "⛓",
+   "anchor": 1,
+   "anchor_en": "We deal",
+   "hook": "That is how We deal with the guilty.",
+   "hook_ar": "كذلك نفعل بالمجرمين.",
+   "mean_ar": "مثلَ ذلك نفعل بكلّ مجرم.",
+   "watch": "Here without إِنَّا. Al-Ṣāffāt 37:34 opens with it: إِنَّا كَذَٰلِكَ نَفۡعَلُ بِٱلۡمُجۡرِمِينَ “Indeed that is how We deal with the guilty”.",
+   "watch_ar": "هنا بلا «إنّا»، وفي [الصافات: ٣٤] بها: ﴿إِنَّا كَذَٰلِكَ نَفۡعَلُ بِٱلۡمُجۡرِمِينَ﴾."
+  },
+  "19": {
+   "icon": "②",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 2 of 10 — after the ruined nations.",
+   "hook_ar": "اللازمة ٢ من ١٠ — بعد الأمم الهالكة.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "20": {
+   "icon": "💧",
+   "anchor": 1,
+   "anchor_en": "create you",
+   "hook": "Proof 2 (birth) — made from a lowly fluid.",
+   "hook_ar": "البرهان الثاني (الخَلق): من ماءٍ مهين.",
+   "mean_ar": "ألم نخلقكم من ماءٍ ضعيفٍ حقير؟",
+   "watch": "مِّن مَّآءٖ مَّهِينٖ “from a base fluid” also ends al-Sajdah 32:8, but there it follows مِن سُلَٰلَةٖ “from an extract”.",
+   "watch_ar": "﴿مِّن مَّآءٖ مَّهِينٖ﴾ تُختم بها أيضًا [السجدة: ٨]، لكنها هناك بعد ﴿مِن سُلَٰلَةٖ﴾."
+  },
+  "21": {
+   "icon": "◍",
+   "anchor": 3,
+   "anchor_en": "secure",
+   "hook": "…placed in a secure resting place.",
+   "hook_ar": "…في قرارٍ مكين.",
+   "mean_ar": "فجعلناه في مكانٍ حصينٍ هو الرَّحِم.",
+   "watch": "فِي قَرَارٖ مَّكِينٍ “in a secure abode” also closes al-Muʾminūn 23:13, where it is ثُمَّ جَعَلۡنَٰهُ نُطۡفَةٗ “then We made him a drop”. Here: فَجَعَلۡنَٰهُ “so We placed it”.",
+   "watch_ar": "﴿فِي قَرَارٖ مَّكِينٍ﴾ تُختم بها أيضًا [المؤمنون: ١٣]، وهي هناك ﴿ثُمَّ جَعَلۡنَٰهُ نُطۡفَةٗ﴾، وهنا ﴿فَجَعَلۡنَٰهُ﴾."
+  },
+  "22": {
+   "icon": "⏳",
+   "anchor": 1,
+   "anchor_en": "a measure",
+   "hook": "…for a known term.",
+   "hook_ar": "…إلى قَدَرٍ معلوم.",
+   "mean_ar": "إلى وقتٍ معلومٍ مقدَّر."
+  },
+  "23": {
+   "icon": "✓",
+   "anchor": 0,
+   "anchor_en": "We determined",
+   "hook": "We determined — how well We determine!",
+   "hook_ar": "فقدَرنا، فنِعمَ القادرون.",
+   "mean_ar": "فقدَّرنا ذلك تقديرًا، فنِعمَ المقدِّرون نحن.",
+   "watch": "One root three times in two verses: قَدَرٖ (v22), فَقَدَرۡنَا, ٱلۡقَٰدِرُونَ “measure · We determined · determiners”.",
+   "watch_ar": "جذرٌ واحد ثلاث مرّات في آيتين: ﴿قَدَرٖ﴾، ﴿فَقَدَرۡنَا﴾، ﴿ٱلۡقَٰدِرُونَ﴾."
+  },
+  "24": {
+   "icon": "③",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 3 of 10 — after the creation from fluid.",
+   "hook_ar": "اللازمة ٣ من ١٠ — بعد الخَلق من ماءٍ مهين.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "25": {
+   "icon": "⊕",
+   "anchor": 3,
+   "anchor_en": "a container",
+   "hook": "Proof 3 (earth) — the earth holds you all.",
+   "hook_ar": "البرهان الثالث (الأرض): وعاءٌ يضمّكم.",
+   "mean_ar": "ألم نجعل الأرض وعاءً يضمّكم؟",
+   "watch": "The very next sūrah opens its proof the same way with another word: al-Nabaʾ 78:6 أَلَمۡ نَجۡعَلِ ٱلۡأَرۡضَ مِهَٰدٗا “a cradle”. Here: كِفَاتًا “a container”.",
+   "watch_ar": "السورة التالية تفتتح برهانها بالصيغة نفسها وكلمةٍ أخرى: [النبأ: ٦] ﴿أَلَمۡ نَجۡعَلِ ٱلۡأَرۡضَ مِهَٰدٗا﴾. وهنا ﴿كِفَاتًا﴾."
+  },
+  "26": {
+   "icon": "⇅",
+   "anchor": 0,
+   "anchor_en": "the living",
+   "hook": "…the living above it and the dead within.",
+   "hook_ar": "…أحياءً على ظهرها وأمواتًا في بطنها.",
+   "mean_ar": "تضمّكم أحياءً على ظهرها وأمواتًا في بطنها."
+  },
+  "27": {
+   "icon": "⛰",
+   "anchor": 3,
+   "anchor_en": "lofty",
+   "hook": "Lofty mountains and sweet water.",
+   "hook_ar": "جبالٌ شامخات وماءٌ فُرات.",
+   "mean_ar": "وجعلنا فيها جبالًا ثابتةً عالية، وسقيناكم ماءً عذبًا.",
+   "watch": "The longest verse of the section — two clauses: رَوَٰسِيَ شَٰمِخَٰتٖ “lofty mountains”, then مَّآءٗ فُرَاتٗا “sweet water”. Mountains before water.",
+   "watch_ar": "أطول آيات المقطع، وفيها جملتان: ﴿رَوَٰسِيَ شَٰمِخَٰتٖ﴾ ثم ﴿مَّآءٗ فُرَاتٗا﴾؛ الجبال قبل الماء."
+  },
+  "28": {
+   "icon": "④",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 4 of 10 — after the earth and its water.",
+   "hook_ar": "اللازمة ٤ من ١٠ — بعد الأرض ومائها.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "29": {
+   "icon": "→",
+   "anchor": 0,
+   "anchor_en": "go on",
+   "hook": "“Go on — to what you used to deny.”",
+   "hook_ar": "«انطلقوا إلى ما كنتم به تكذّبون».",
+   "mean_ar": "يُقال لهم: انطلقوا إلى العذاب الذي كنتم به تكذّبون.",
+   "watch": "ٱنطَلِقُوٓاْ “Go on!” opens this verse and the next. First: to what they denied; second: to the shade.",
+   "watch_ar": "﴿ٱنطَلِقُوٓاْ﴾ تفتتح هذه الآية والتي تليها: الأولى إلى ما كذّبوا به، والثانية إلى الظلّ."
+  },
+  "30": {
+   "icon": "⋔",
+   "anchor": 2,
+   "anchor_en": "a shade",
+   "hook": "“Go on — to a shade with three branches.”",
+   "hook_ar": "«انطلقوا إلى ظلٍّ ذي ثلاث شُعَب».",
+   "mean_ar": "انطلقوا إلى ظلٍّ من دخان جهنّم له ثلاث شُعَب."
+  },
+  "31": {
+   "icon": "🔥",
+   "anchor": 1,
+   "anchor_en": "giving shade",
+   "hook": "A shade that shades nothing, no cover from the flame.",
+   "hook_ar": "ظلٌّ لا يُظِلّ ولا يُغني من اللهب.",
+   "mean_ar": "لا يُظِلّ من حرّ، ولا يدفع شيئًا من لهب النار."
+  },
+  "32": {
+   "icon": "✺",
+   "anchor": 2,
+   "anchor_en": "sparks",
+   "hook": "Sparks as big as castles…",
+   "hook_ar": "شررٌ كالقصر…",
+   "mean_ar": "إنّ جهنّم ترمي بشررٍ عظيمٍ كالقصر في ضخامته."
+  },
+  "33": {
+   "icon": "🐪",
+   "anchor": 1,
+   "anchor_en": "camels",
+   "hook": "…like yellow camels.",
+   "hook_ar": "…كأنه جِمالاتٌ صُفر.",
+   "mean_ar": "كأنّ الشرر جِمالٌ صُفرٌ في لونها وكثرتها."
+  },
+  "34": {
+   "icon": "⑤",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 5 of 10 — after the sparks like yellow camels.",
+   "hook_ar": "اللازمة ٥ من ١٠ — بعد الشرر كالجِمالات الصُّفر.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "35": {
+   "icon": "🤐",
+   "anchor": 3,
+   "anchor_en": "speak",
+   "hook": "A day on which they do not speak…",
+   "hook_ar": "يومٌ لا ينطقون…",
+   "mean_ar": "هذا يومٌ لا ينطقون فيه بما ينفعهم.",
+   "watch": "هَٰذَا يَوۡمُ “This is a day …” returns in v38 with ٱلۡفَصۡلِ “the Sorting”.",
+   "watch_ar": "﴿هَٰذَا يَوۡمُ﴾ تعود في الآية ٣٨ مع ﴿ٱلۡفَصۡلِ﴾."
+  },
+  "36": {
+   "icon": "✋",
+   "anchor": 3,
+   "anchor_en": "and excuse themselves",
+   "hook": "…nor are they permitted to excuse themselves.",
+   "hook_ar": "…ولا يُؤذن لهم فيعتذرون.",
+   "mean_ar": "ولا يُؤذَن لهم في الاعتذار فيعتذروا."
+  },
+  "37": {
+   "icon": "⑥",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 6 of 10 — after the silence.",
+   "hook_ar": "اللازمة ٦ من ١٠ — بعد الصمت.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "38": {
+   "icon": "⚖",
+   "anchor": 2,
+   "anchor_en": "the Sorting",
+   "hook": "The Day of Sorting — everyone gathered.",
+   "hook_ar": "يوم الفصل — جُمع الأوّلون والآخِرون.",
+   "mean_ar": "هذا يومُ الفصل، جمعناكم فيه مع الأوّلين.",
+   "watch": "ٱلۡأَوَّلِينَ “the former ones” returns from v16 — then they were destroyed, now they are gathered.",
+   "watch_ar": "﴿ٱلۡأَوَّلِينَ﴾ تعود من الآية ١٦: هناك أُهلكوا، وهنا جُمعوا."
+  },
+  "39": {
+   "icon": "♟",
+   "anchor": 3,
+   "anchor_en": "a plot",
+   "hook": "“If you have a plan, use it against Me.”",
+   "hook_ar": "«فإن كان لكم كيدٌ فكيدون».",
+   "mean_ar": "فإن كانت لكم حيلةٌ تنجون بها فاحتالوا عليّ."
+  },
+  "40": {
+   "icon": "⑦",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 7 of 10 — after the challenge to plot.",
+   "hook_ar": "اللازمة ٧ من ١٠ — بعد التحدّي بالكيد.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "41": {
+   "icon": "🌳",
+   "anchor": 3,
+   "anchor_en": "shades",
+   "hook": "The God-fearing — in shades and springs.",
+   "hook_ar": "المتّقون في ظلالٍ وعيون.",
+   "mean_ar": "إنّ المتّقين في ظلال الأشجار وعيون الماء.",
+   "watch": "Al-Dhāriyāt 51:15 reads إِنَّ ٱلۡمُتَّقِينَ فِي جَنَّٰتٖ وَعُيُونٍ “in gardens and springs”, and al-Ṭūr 52:17 جَنَّٰتٖ وَنَعِيمٖ “gardens and bliss”. Al-Mursalāt alone has ظِلَٰلٖ “shades” — the answer to the shade that gave none in v30.",
+   "watch_ar": "في [الذاريات: ١٥] ﴿إِنَّ ٱلۡمُتَّقِينَ فِي جَنَّٰتٖ وَعُيُونٍ﴾، وفي [الطور: ١٧] ﴿جَنَّٰتٖ وَنَعِيمٖ﴾. وتنفرد المرسلات بـ﴿ظِلَٰلٖ﴾، مقابل الظلّ الذي لا يُظِلّ في الآية ٣٠."
+  },
+  "42": {
+   "icon": "🍇",
+   "anchor": 0,
+   "anchor_en": "and fruits",
+   "hook": "…and fruits, whatever they desire.",
+   "hook_ar": "…وفواكه مما يشتهون.",
+   "mean_ar": "وفواكهَ ممّا يشتهون."
+  },
+  "43": {
+   "icon": "🥛",
+   "anchor": 2,
+   "anchor_en": "in health",
+   "hook": "“Eat and drink in health for what you used to do.”",
+   "hook_ar": "«كلوا واشربوا هنيئًا».",
+   "mean_ar": "يُقال لهم: كلوا واشربوا هنيئًا بما كنتم تعملون.",
+   "watch": "Identical to al-Ṭūr 52:19. Al-Ḥāqqah 69:24 ends differently: بِمَآ أَسۡلَفۡتُمۡ فِي ٱلۡأَيَّامِ ٱلۡخَالِيَةِ “for what you sent ahead in days gone by”.",
+   "watch_ar": "مطابقة لـ[الطور: ١٩]. أمّا [الحاقة: ٢٤] فتُختم بـ﴿بِمَآ أَسۡلَفۡتُمۡ فِي ٱلۡأَيَّامِ ٱلۡخَالِيَةِ﴾."
+  },
+  "44": {
+   "icon": "🏅",
+   "anchor": 2,
+   "anchor_en": "We reward",
+   "hook": "That is how We reward the doers of good.",
+   "hook_ar": "إنّا كذلك نجزي المحسنين.",
+   "mean_ar": "إنّا كذلك نجزي المحسنين.",
+   "watch": "Same words in al-Ṣāffāt 37:80, 37:121 and 37:131 (and inside 37:105). Al-Ṣāffāt 37:110 drops إِنَّا. Compare v18 here: كَذَٰلِكَ نَفۡعَلُ بِٱلۡمُجۡرِمِينَ “that is how We deal with the guilty” — reward here, punishment there.",
+   "watch_ar": "اللفظ نفسه في [الصافات: ٨٠، ١٢١، ١٣١] وفي ضمن [الصافات: ١٠٥]، وبلا «إنّا» في [الصافات: ١١٠]. وقارنها بالآية ١٨ هنا: ﴿كَذَٰلِكَ نَفۡعَلُ بِٱلۡمُجۡرِمِينَ﴾ — جزاءٌ هنا وعقابٌ هناك."
+  },
+  "45": {
+   "icon": "⑧",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 8 of 10 — after the reward of the good.",
+   "hook_ar": "اللازمة ٨ من ١٠ — بعد جزاء المحسنين.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "46": {
+   "icon": "⌛",
+   "anchor": 1,
+   "anchor_en": "and enjoy",
+   "hook": "“Eat and enjoy a little — you are guilty.”",
+   "hook_ar": "«كلوا وتمتّعوا قليلًا».",
+   "mean_ar": "ويُقال للمكذّبين: كلوا وتمتّعوا في الدنيا قليلًا، إنّكم مجرمون.",
+   "watch": "كُلُواْ “eat” again, but now وَتَمَتَّعُواْ قَلِيلًا “and enjoy a little” — the deniers' version of v43.",
+   "watch_ar": "﴿كُلُواْ﴾ مرّة أخرى، ولكن ﴿وَتَمَتَّعُواْ قَلِيلًا﴾ — نسخة المكذّبين من الآية ٤٣."
+  },
+  "47": {
+   "icon": "⑨",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 9 of 10 — after “enjoy a little”.",
+   "hook_ar": "اللازمة ٩ من ١٠ — بعد «تمتّعوا قليلًا».",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "48": {
+   "icon": "🙇",
+   "anchor": 3,
+   "anchor_en": "bow",
+   "hook": "Told to bow, they do not bow.",
+   "hook_ar": "إذا قيل لهم اركعوا لا يركعون.",
+   "mean_ar": "وإذا قيل لهم: صلّوا واركعوا لله، لا يركعون."
+  },
+  "49": {
+   "icon": "⑩",
+   "anchor": 0,
+   "anchor_en": "woe",
+   "hook": "Refrain 10 of 10 — after the refusal to bow.",
+   "hook_ar": "اللازمة ١٠ من ١٠ — بعد الإباء عن الركوع.",
+   "mean_ar": "هلاكٌ وعذابٌ يومئذٍ للمكذِّبين."
+  },
+  "50": {
+   "icon": "📖",
+   "anchor": 1,
+   "anchor_en": "speech",
+   "hook": "The closing question: what message after this will they believe?",
+   "hook_ar": "السؤال الخاتم: فبأيّ حديثٍ بعده يؤمنون؟",
+   "mean_ar": "فبأيّ حديثٍ بعد القرآن يؤمنون؟",
+   "watch": "Identical to the close of al-Aʿrāf 7:185. Al-Jāthiyah 45:6 reads فَبِأَيِّ حَدِيثِۭ بَعۡدَ ٱللَّهِ وَءَايَٰتِهِۦ يُؤۡمِنُونَ “after God and His signs”. Here: بَعۡدَهُۥ “after it”.",
+   "watch_ar": "مطابقة لخاتمة [الأعراف: ١٨٥]. وفي [الجاثية: ٦] ﴿فَبِأَيِّ حَدِيثِۭ بَعۡدَ ٱللَّهِ وَءَايَٰتِهِۦ يُؤۡمِنُونَ﴾، وهنا ﴿بَعۡدَهُۥ﴾."
+  }
+ }
+}

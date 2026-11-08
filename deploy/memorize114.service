@@ -1,0 +1,18 @@
+# /etc/systemd/system/memorize114.service  (setup.sh installs this)
+[Unit]
+Description=Memorize 114 API
+After=network.target postgresql.service
+
+[Service]
+User=m114
+WorkingDirectory=/opt/memorize114/server
+EnvironmentFile=/opt/memorize114/server/.env
+ExecStart=/usr/bin/node src/index.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=full
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

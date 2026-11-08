@@ -1,0 +1,265 @@
+{
+ "note": "Teaching layer for Sūrat al-Jumuʿah. Hooks, meanings, watch-outs and chunking are the app author's own aids, not a published translation or tafsīr. Qurʾānic quotations are copied from the KFGQPC Hafs v18 text.",
+ "sections": [
+  {
+   "id": "A",
+   "from": 1,
+   "to": 4,
+   "title": "The Sender and the Sent",
+   "ar": "المُرسِلُ والرسول",
+   "color": "#2F7D5B"
+  },
+  {
+   "id": "B",
+   "from": 5,
+   "to": 8,
+   "title": "Carrying the Book, fleeing death",
+   "ar": "حَمَلَةُ الكتاب والفِرارُ من الموت",
+   "color": "#B26B14"
+  },
+  {
+   "id": "C",
+   "from": 9,
+   "to": 11,
+   "title": "The Friday call",
+   "ar": "نداءُ الجمعة",
+   "color": "#2D5F8E"
+  }
+ ],
+ "threads": [
+  {
+   "verses": [
+    4,
+    10
+   ],
+   "label": "فَضۡل “bounty”",
+   "text": "God's bounty in v4 (twice) returns in v10: وَٱبۡتَغُواْ مِن فَضۡلِ ٱللَّهِ “and seek of God's bounty”.",
+   "label_ar": "الفضل",
+   "text_ar": "فضلُ الله في الآية ٤ (مرّتين) يعود في الآية ١٠: ﴿وَٱبۡتَغُواْ مِن فَضۡلِ ٱللَّهِ﴾."
+  },
+  {
+   "verses": [
+    5,
+    7
+   ],
+   "label": "ٱلظَّٰلِمِينَ “the wrongdoers”",
+   "text": "v5 ends ٱلۡقَوۡمَ ٱلظَّٰلِمِينَ “the wrongdoing people”, v7 ends بِٱلظَّٰلِمِينَ “of the wrongdoers” — the B section's two endings land on the same word.",
+   "label_ar": "الظالمين",
+   "text_ar": "تُختم الآية ٥ بـ﴿ٱلۡقَوۡمَ ٱلظَّٰلِمِينَ﴾ والآية ٧ بـ﴿بِٱلظَّٰلِمِينَ﴾، فخاتمتا المقطع الثاني على الكلمة نفسها."
+  },
+  {
+   "verses": [
+    6,
+    8,
+    11
+   ],
+   "label": "قُلۡ “Say” — three commands",
+   "text": "قُلۡ “Say” opens v6 and v8, and turns v11 halfway through.",
+   "label_ar": "قُل — ثلاثة أوامر",
+   "text_ar": "﴿قُلۡ﴾ تفتتح الآيتين ٦ و٨، وتأتي في منتصف الآية ١١."
+  },
+  {
+   "verses": [
+    1,
+    3
+   ],
+   "label": "ٱلۡعَزِيزُ ٱلۡحَكِيمُ “the Mighty, the Wise”",
+   "text": "v1 ends with four names; v3 closes on the last two of them.",
+   "label_ar": "العزيز الحكيم",
+   "text_ar": "تنتهي الآية ١ بأربعة أسماء، وتُختم الآية ٣ بآخر اثنين منها."
+  },
+  {
+   "verses": [
+    9,
+    10,
+    11
+   ],
+   "label": "Trade",
+   "text": "Drop the sale — ٱلۡبَيۡعَ “trading” → seek God's bounty → they ran to the trade — تِجَٰرَةً “trade”.",
+   "label_ar": "التجارة",
+   "text_ar": "اتركوا ﴿ٱلۡبَيۡعَ﴾ ← ابتغوا فضل الله ← انفضّوا إلى ﴿تِجَٰرَةً﴾."
+  },
+  {
+   "verses": [
+    9,
+    10
+   ],
+   "label": "Remembrance",
+   "text": "فَٱسۡعَوۡاْ إِلَىٰ ذِكۡرِ ٱللَّهِ “hasten to the remembrance of God” in v9, وَٱذۡكُرُواْ ٱللَّهَ كَثِيرٗا “and remember God much” in v10.",
+   "label_ar": "الذِّكر",
+   "text_ar": "﴿فَٱسۡعَوۡاْ إِلَىٰ ذِكۡرِ ٱللَّهِ﴾ في الآية ٩، و﴿وَٱذۡكُرُواْ ٱللَّهَ كَثِيرٗا﴾ في الآية ١٠."
+  }
+ ],
+ "verses": {
+  "1": {
+   "icon": "✦",
+   "anchor": 9,
+   "chunks": [
+    0,
+    5,
+    8
+   ],
+   "anchor_en": "the Most Holy",
+   "hook": "The whole cosmos praising; then four names in a row: King · Holy · Mighty · Wise.",
+   "hook_ar": "الكونُ كلُّه يسبّح، ثم أربعةُ أسماءٍ متتالية: المَلِك، القُدّوس، العزيز، الحكيم.",
+   "mean_ar": "يُنزِّه اللهَ كلُّ ما في السماوات وما في الأرض؛ فهو المَلِكُ المالكُ لكلّ شيء، المنزَّهُ عن كلّ نقص، الغالبُ الذي لا يُغلَب، الحكيمُ في تدبيره.",
+   "watch": "Opens يُسَبِّحُ “glorifies” (present tense), like al-Taghābun 64:1. Al-Ḥadīd 57:1, al-Ḥashr 59:1 and al-Ṣaff 61:1 open سَبَّحَ “glorified” (past tense). Here it is وَمَا فِي ٱلۡأَرۡضِ “and whatever is on the earth”; al-Ḥadīd 57:1 has only وَٱلۡأَرۡضِ “and the earth”. After ٱلۡأَرۡضِ “the earth” this verse alone runs into four names, all with kasra because they follow لِلَّهِ “God”.",
+   "watch_ar": "تبدأ بـ﴿يُسَبِّحُ﴾ بالمضارع، مثل [التغابن: ١]، أمّا [الحديد: ١] و[الحشر: ١] و[الصفّ: ١] فتبدأ بـ﴿سَبَّحَ﴾ بالماضي. وهنا ﴿وَمَا فِي ٱلۡأَرۡضِ﴾، وفي [الحديد: ١] ﴿وَٱلۡأَرۡضِ﴾ وحدها. وبعد ﴿ٱلۡأَرۡضِ﴾ تنفرد هذه الآية بأربعة أسماء متتالية، كلُّها مجرورة لأنها تتبع ﴿لِلَّهِ﴾."
+  },
+  "2": {
+   "icon": "✉",
+   "anchor": 5,
+   "chunks": [
+    0,
+    5,
+    7,
+    10,
+    14
+   ],
+   "anchor_en": "a messenger",
+   "hook": "One messenger, three tasks in order: recite → purify → teach.",
+   "hook_ar": "رسولٌ واحد وثلاثُ مهامّ بالترتيب: يتلو ← يزكّي ← يعلّم.",
+   "mean_ar": "هو الذي أرسل في قومٍ أمّيين لا يقرؤون ولا يكتبون رسولًا منهم، يقرأ عليهم آياتِ الله، ويطهّرهم، ويعلّمهم الكتابَ والحكمة، وقد كانوا قبل ذلك في ضلالٍ واضح.",
+   "watch": "Order here: يَتۡلُواْ “recites” → وَيُزَكِّيهِمۡ “and purifies them” → وَيُعَلِّمُهُمُ “and teaches them”, the same as Āl ʿImrān 3:164, whose close وَإِن كَانُواْ مِن قَبۡلُ لَفِي ضَلَٰلٖ مُّبِينٖ “though before they had been in manifest error” is also the same. In al-Baqarah 2:129 (Ibrāhīm's prayer) teaching comes before purifying. Here مِّنۡهُمۡ “from among them”; 3:164 has مِّنۡ أَنفُسِهِمۡ “from among themselves”.",
+   "watch_ar": "الترتيب هنا: ﴿يَتۡلُواْ﴾ ثم ﴿وَيُزَكِّيهِمۡ﴾ ثم ﴿وَيُعَلِّمُهُمُ﴾، كما في [آل عمران: ١٦٤]، وخاتمتها ﴿وَإِن كَانُواْ مِن قَبۡلُ لَفِي ضَلَٰلٖ مُّبِينٖ﴾ واحدة أيضًا. أمّا في دعاء إبراهيم [البقرة: ١٢٩] فالتعليم قبل التزكية. وهنا ﴿مِّنۡهُمۡ﴾، وفي آل عمران ﴿مِّنۡ أَنفُسِهِمۡ﴾."
+  },
+  "3": {
+   "icon": "⋯",
+   "anchor": 0,
+   "chunks": [
+    0,
+    5
+   ],
+   "anchor_en": "and others",
+   "hook": "More people still to come — closes on the last two names of verse 1.",
+   "hook_ar": "أقوامٌ آتون بعدُ — وتُختم الآية بآخر اسمين من الآية الأولى.",
+   "mean_ar": "وبعثه كذلك إلى آخرين منهم لم يجيئوا بعدُ ولم يلحقوا بهم، وهو العزيزُ الحكيم.",
+   "watch": "Ends وَهُوَ ٱلۡعَزِيزُ ٱلۡحَكِيمُ “and He is the Mighty, the Wise” — the last two names of verse 1, now with ḍamma. Ibrāhīm's prayer in 2:129 also closes on ٱلۡعَزِيزُ ٱلۡحَكِيمُ “the Mighty, the Wise”.",
+   "watch_ar": "تُختم بـ﴿وَهُوَ ٱلۡعَزِيزُ ٱلۡحَكِيمُ﴾، وهما آخر اسمين من الآية الأولى، مرفوعين هذه المرّة. ويُختم دعاء إبراهيم في [البقرة: ١٢٩] بـ﴿ٱلۡعَزِيزُ ٱلۡحَكِيمُ﴾ كذلك."
+  },
+  "4": {
+   "icon": "◈",
+   "anchor": 1,
+   "chunks": [
+    0,
+    6
+   ],
+   "anchor_en": "bounty",
+   "hook": "فَضۡل “bounty” twice in one verse — God's bounty, the God of great bounty.",
+   "hook_ar": "«الفضل» مرّتين في آيةٍ واحدة: فضلُ الله، والله ذو الفضل العظيم.",
+   "mean_ar": "ذلك البعثُ وما فيه من هدايةٍ فضلٌ من الله يعطيه من يشاء، والله صاحبُ الفضل العظيم.",
+   "watch": "Identical to the end of al-Ḥadīd 57:21. Al-Ḥadīd 57:29 shares يُؤۡتِيهِ مَن يَشَآءُۚ وَٱللَّهُ ذُو ٱلۡفَضۡلِ ٱلۡعَظِيمِ “He gives it to whom He wills, and God is the possessor of great bounty”, and Āl ʿImrān 3:74 ends وَٱللَّهُ ذُو ٱلۡفَضۡلِ ٱلۡعَظِيمِ “and God is the possessor of great bounty”.",
+   "watch_ar": "مطابقة لخاتمة [الحديد: ٢١]. وتشترك [الحديد: ٢٩] في ﴿يُؤۡتِيهِ مَن يَشَآءُۚ وَٱللَّهُ ذُو ٱلۡفَضۡلِ ٱلۡعَظِيمِ﴾، وتُختم [آل عمران: ٧٤] بـ﴿وَٱللَّهُ ذُو ٱلۡفَضۡلِ ٱلۡعَظِيمِ﴾."
+  },
+  "5": {
+   "icon": "▤",
+   "anchor": 8,
+   "chunks": [
+    0,
+    7,
+    11,
+    18
+   ],
+   "anchor_en": "the donkey",
+   "hook": "A donkey loaded with books it cannot read.",
+   "hook_ar": "حمارٌ يحمل كتبًا لا يدري ما فيها.",
+   "mean_ar": "مَثَلُ الذين كُلِّفوا العملَ بالتوراة ثم لم يعملوا بها، كمثل الحمار يحمل كتبًا كبيرةً ولا يدري ما فيها. ساء مَثَلًا مَثَلُ القوم الذين كذّبوا بآيات الله، والله لا يهدي القومَ الظالمين.",
+   "watch": "مَثَل “likeness” three times: مَثَلُ … كَمَثَلِ … بِئۡسَ مَثَلُ “evil is the likeness”. The ending وَٱللَّهُ لَا يَهۡدِي ٱلۡقَوۡمَ “and God does not guide the people …” takes three forms in the Qurʾān: ٱلظَّٰلِمِينَ “the wrongdoers” (here, 61:7, 2:258, 3:86, 9:19, 9:109), ٱلۡفَٰسِقِينَ “the transgressors” (61:5, 5:108, 9:24, 9:80) and ٱلۡكَٰفِرِينَ “the disbelievers” (2:264, 9:37). Here it is ٱلظَّٰلِمِينَ — and verse 7 also ends on it.",
+   "watch_ar": "﴿مَثَلُ﴾ ثلاث مرّات: ﴿مَثَلُ﴾ … ﴿كَمَثَلِ﴾ … ﴿بِئۡسَ مَثَلُ﴾. وخاتمة ﴿وَٱللَّهُ لَا يَهۡدِي ٱلۡقَوۡمَ﴾ تأتي في القرآن على ثلاثة أوجه: ﴿ٱلظَّٰلِمِينَ﴾ (هنا، و[الصفّ: ٧]، و[البقرة: ٢٥٨]، و[آل عمران: ٨٦]، و[التوبة: ١٩، ١٠٩])، و﴿ٱلۡفَٰسِقِينَ﴾ ([الصفّ: ٥]، و[المائدة: ١٠٨]، و[التوبة: ٢٤، ٨٠])، و﴿ٱلۡكَٰفِرِينَ﴾ ([البقرة: ٢٦٤]، و[التوبة: ٣٧]). وهي هنا ﴿ٱلظَّٰلِمِينَ﴾، وبها تُختم الآية ٧ أيضًا."
+  },
+  "6": {
+   "icon": "⚖",
+   "anchor": 12,
+   "chunks": [
+    0,
+    4,
+    12
+   ],
+   "anchor_en": "then wish (for)",
+   "hook": "The challenge: if you are God's friends, wish for death.",
+   "hook_ar": "التحدّي: إن كنتم أولياءَ لله فتمنَّوا الموت.",
+   "mean_ar": "قل (أيها النبي): يا أيها الذين هادوا، إن ادّعيتم أنكم أولياءُ الله دون سائر الناس، فتمنَّوا الموتَ إن كنتم صادقين في دعواكم.",
+   "watch": "Compare al-Baqarah 2:94, which opens قُلۡ إِن كَانَتۡ لَكُمُ ٱلدَّارُ ٱلۡأٓخِرَةُ “Say: if the abode of the Hereafter is yours …”. From دُونِ ٱلنَّاسِ “to the exclusion of people” to the end the two verses are the same: فَتَمَنَّوُاْ ٱلۡمَوۡتَ إِن كُنتُمۡ صَٰدِقِينَ “then wish for death, if you are truthful”.",
+   "watch_ar": "قارنها بـ[البقرة: ٩٤] التي تبدأ ﴿قُلۡ إِن كَانَتۡ لَكُمُ ٱلدَّارُ ٱلۡأٓخِرَةُ﴾. ومن ﴿دُونِ ٱلنَّاسِ﴾ إلى آخر الآية فالآيتان واحدة: ﴿فَتَمَنَّوُاْ ٱلۡمَوۡتَ إِن كُنتُمۡ صَٰدِقِينَ﴾."
+  },
+  "7": {
+   "icon": "✋",
+   "anchor": 5,
+   "chunks": [
+    0,
+    6
+   ],
+   "anchor_en": "their hands",
+   "hook": "What their hands sent ahead holds them back.",
+   "hook_ar": "ما قدّمته أيديهم يمنعهم من تمنّي الموت.",
+   "mean_ar": "ولا يتمنَّون الموتَ أبدًا بسبب ما قدّمته أيديهم من الأعمال، والله عليمٌ بالظالمين.",
+   "watch": "The classic pair. Here: وَلَا يَتَمَنَّوۡنَهُۥٓ “and they will not wish for it”. Al-Baqarah 2:95: وَلَن يَتَمَنَّوۡهُ “and they will never wish for it”. Everything after أَبَدَۢا “ever” is identical. One nūn, two places: with لَا “not” the verb keeps its nūn (يَتَمَنَّوۡنَهُ); لَن “will never” puts the verb in the subjunctive and the verb's nūn drops (يَتَمَنَّوۡهُ).",
+   "watch_ar": "الزوج المشهور: هنا ﴿وَلَا يَتَمَنَّوۡنَهُۥٓ﴾، وفي [البقرة: ٩٥] ﴿وَلَن يَتَمَنَّوۡهُ﴾، وما بعد ﴿أَبَدَۢا﴾ متطابق. نونٌ واحدة في موضعين: مع «لا» يبقى الفعل بنونه (﴿يَتَمَنَّوۡنَهُۥٓ﴾)، و«لن» تنصب الفعل فتُحذف نونه (﴿يَتَمَنَّوۡهُ﴾)."
+  },
+  "8": {
+   "icon": "⇢",
+   "anchor": 4,
+   "chunks": [
+    0,
+    6,
+    8,
+    14
+   ],
+   "anchor_en": "you flee",
+   "hook": "Running from death — straight into it.",
+   "hook_ar": "يفرّون من الموت فإذا هو ملاقيهم.",
+   "mean_ar": "قل: إن الموت الذي تهربون منه لا بدّ أن يلقاكم، ثم ترجعون إلى الله الذي يعلم ما غاب وما ظهر، فيخبركم بما كنتم تعملون.",
+   "watch": "From ثُمَّ تُرَدُّونَ “then you will be returned” to the end, identical to the close of al-Tawbah 9:94. Al-Tawbah 9:105 has the same ending but opens it with وَسَتُرَدُّونَ “and you will be returned” instead of ثُمَّ تُرَدُّونَ.",
+   "watch_ar": "من ﴿ثُمَّ تُرَدُّونَ﴾ إلى آخر الآية مطابق لخاتمة [التوبة: ٩٤]. و[التوبة: ١٠٥] لها الخاتمة نفسها لكنها تبدأ ﴿وَسَتُرَدُّونَ﴾ بدل ﴿ثُمَّ تُرَدُّونَ﴾."
+  },
+  "9": {
+   "icon": "◉",
+   "anchor": 4,
+   "chunks": [
+    0,
+    3,
+    9,
+    13,
+    15
+   ],
+   "anchor_en": "the call is made",
+   "hook": "The call sounds: hurry to remembrance, drop the sale.",
+   "hook_ar": "النداء: أسرِعوا إلى الذكر واتركوا البيع.",
+   "mean_ar": "يا أيها الذين آمنوا، إذا نُودي للصلاة يومَ الجمعة فامضُوا إلى ذكر الله واتركوا البيعَ والشراء؛ ذلك خيرٌ لكم إن كنتم تعلمون.",
+   "watch": "Page turn: verses 1–8 fill page 553, this verse opens page 554. The close ذَٰلِكُمۡ خَيۡرٞ لَّكُمۡ إِن كُنتُمۡ تَعۡلَمُونَ “that is better for you, if you only knew” also ends al-Ṣaff 61:11 (the sūrah just before), al-Tawbah 9:41 and al-ʿAnkabūt 29:16.",
+   "watch_ar": "انتقال الصفحة: الآيات ١–٨ تملأ الصفحة ٥٥٣، وبهذه الآية تبدأ الصفحة ٥٥٤. وخاتمة ﴿ذَٰلِكُمۡ خَيۡرٞ لَّكُمۡ إِن كُنتُمۡ تَعۡلَمُونَ﴾ تُختم بها أيضًا [الصفّ: ١١] (السورة السابقة مباشرة)، و[التوبة: ٤١]، و[العنكبوت: ١٦]."
+  },
+  "10": {
+   "icon": "✧",
+   "anchor": 3,
+   "chunks": [
+    0,
+    3,
+    6,
+    10
+   ],
+   "anchor_en": "disperse",
+   "hook": "Prayer done: spread out, seek bounty, keep remembering.",
+   "hook_ar": "انقضت الصلاة: انتشروا، وابتغوا الفضل، وأكثِروا الذكر.",
+   "mean_ar": "فإذا انتهت الصلاة فتفرّقوا في الأرض واطلبوا من رزق الله، واذكروا اللهَ ذكرًا كثيرًا لعلّكم تفلحون.",
+   "watch": "وَٱذۡكُرُواْ ٱللَّهَ كَثِيرٗا لَّعَلَّكُمۡ تُفۡلِحُونَ “and remember God much, that you may prosper” is word-for-word the end of al-Anfāl 8:45. Inside the sūrah, فَضۡلِ ٱللَّهِ “God's bounty” looks back to verse 4 and ذِكۡر “remembrance” to verse 9.",
+   "watch_ar": "﴿وَٱذۡكُرُواْ ٱللَّهَ كَثِيرٗا لَّعَلَّكُمۡ تُفۡلِحُونَ﴾ مطابقة حرفًا بحرف لخاتمة [الأنفال: ٤٥]. وفي داخل السورة: ﴿فَضۡلِ ٱللَّهِ﴾ ترجع إلى الآية ٤، و«الذكر» إلى الآية ٩."
+  },
+  "11": {
+   "icon": "⇱",
+   "anchor": 5,
+   "chunks": [
+    0,
+    5,
+    9,
+    18
+   ],
+   "anchor_en": "they broke away",
+   "hook": "They scattered to the trade and left you standing.",
+   "hook_ar": "انفضّوا إلى التجارة وتركوك قائمًا.",
+   "mean_ar": "وإذا رأوا تجارةً أو لهوًا تفرّقوا ذاهبين إليها وتركوك قائمًا. قل: ما عند الله خيرٌ من اللهو ومن التجارة، والله خيرُ الرازقين.",
+   "watch": "The pair flips inside the verse: تِجَٰرَةً أَوۡ لَهۡوًا “trade or amusement”, then مِّنَ ٱللَّهۡوِ وَمِنَ ٱلتِّجَٰرَةِ “than amusement and than trade”. ٱنفَضُّوٓاْ إِلَيۡهَا “they broke away towards it” — singular. Ends وَٱللَّهُ خَيۡرُ ٱلرَّٰزِقِينَ “and God is the best of providers”; 22:58 has وَإِنَّ ٱللَّهَ لَهُوَ خَيۡرُ ٱلرَّٰزِقِينَ “and indeed God is the best of providers”, and 23:72 and 34:39 have وَهُوَ خَيۡرُ ٱلرَّٰزِقِينَ “and He is the best of providers”.",
+   "watch_ar": "ينقلب الترتيب داخل الآية: ﴿تِجَٰرَةً أَوۡ لَهۡوًا﴾ ثم ﴿مِّنَ ٱللَّهۡوِ وَمِنَ ٱلتِّجَٰرَةِ﴾. و﴿ٱنفَضُّوٓاْ إِلَيۡهَا﴾ بضمير المفرد. وتُختم بـ﴿وَٱللَّهُ خَيۡرُ ٱلرَّٰزِقِينَ﴾؛ وفي [الحج: ٥٨] ﴿وَإِنَّ ٱللَّهَ لَهُوَ خَيۡرُ ٱلرَّٰزِقِينَ﴾، وفي [المؤمنون: ٧٢] و[سبأ: ٣٩] ﴿وَهُوَ خَيۡرُ ٱلرَّٰزِقِينَ﴾."
+  }
+ }
+}
