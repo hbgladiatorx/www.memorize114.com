@@ -14,7 +14,7 @@ Live at **https://www.memorize114.com**
 
 ## Putting it on Lightsail (first time)
 
-You need an **Ubuntu 22.04 or 24.04** Lightsail instance.
+Works on **AlmaLinux 8–9, Amazon Linux 2023 or Ubuntu 22.04/24.04** (login user `ec2-user` or `ubuntu`). On AlmaLinux, install git first: `sudo dnf install -y git`.
 
 1. **In the Lightsail console**
    - Networking → attach a **static IP**, and add a firewall rule for **HTTPS (443)** (HTTP 80 and SSH 22 are open by default).
