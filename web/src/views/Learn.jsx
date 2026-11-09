@@ -153,6 +153,10 @@ function LearnSurah({ s }) {
             <span className={playing === v.a ? 'playing' : ''}>
               <Verse v={v} hidden={fadeHidden(v, f === 5 ? 4 : f, s.n)} blank={f === 5} weak={f === 0 ? P.miss[v.a] : null} peekable resetKey={f} onNum={(a) => set({ mode: 'verse', verse: a, learnStep: 'read' })} />
             </span>
+            {v.dua && f === 0 && !isAr() && (S.settings.showTl || S.settings.showTr) && <div className="tlblock" dir="ltr" style={{ '--sec': v.color }}>
+              {S.settings.showTl && v.tl && <div className="tl">{v.tl.join(' ')}</div>}
+              {S.settings.showTr && s.tr?.v?.[v.a] && <div className="small muted">{s.tr.v[v.a]}</div>}
+            </div>}
           </span>);
         })}
       </div>

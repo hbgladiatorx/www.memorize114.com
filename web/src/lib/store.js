@@ -8,7 +8,7 @@ const LS = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage full or blocked */ } },
 };
 
-const DEFAULTS = { t: 0, size: 30, newPerDay: 2, retention: 0.9, showTr: true, showTrAr: false, surah: 62, days: {}, lang: 'en', reciter: 'alafasy', rep: 3, echo: false, rate: 1 };
+const DEFAULTS = { t: 0, size: 30, newPerDay: 2, retention: 0.9, showTr: true, showTl: true, showTrAr: false, surah: 62, days: {}, lang: 'en', reciter: 'alafasy', rep: 3, echo: false, rate: 1 };
 
 export const S = {
   settings: { ...DEFAULTS, ...LS.get('m114.settings', {}) },

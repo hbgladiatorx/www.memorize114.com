@@ -72,6 +72,7 @@ export function VerseChips({ active, onPick }) {
 export function Meaning({ s, v }) {
   const qarai = s.tr?.v?.[v.a];
   if (s.kind === 'dua') return (<>
+    {!isAr() && S.settings.showTl && v.tl && <div className="tl" style={{ '--sec': v.color }}>{v.tl.join(' ')}</div>}
     {!isAr() && S.settings.showTr && qarai && <div className="trans" style={{ '--sec': v.color }}>{qarai}</div>}
     {(v.note || v.var) && <div className="note small">{v.note && <div>{isAr() ? v.note_ar : v.note}</div>}{v.var && <div><b>{tsq('Note  ', 'تنبيه  ')}</b>{isAr() ? v.var_ar : rich(v.var)}</div>}</div>}
   </>);

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MushafPage } from '../components/Mushaf.jsx';
-import { logActivity, prog } from '../lib/store.js';
+import { S, logActivity, prog } from '../lib/store.js';
 import { retr } from '../lib/fsrs.js';
 import { Seg } from '../components/ui.jsx';
 import { toAr } from '../lib/arabic.js';
@@ -20,7 +20,7 @@ export default function MapView() {
 
     <div className="card topline" style={{ '--sec': 'var(--violet)' }}>
       <h2>{ts('Memory journey', 'رحلة الذاكرة')}</h2>
-      <div className="muted small" style={{ marginBottom: 6 }}>{E && s.kind !== 'dua' ? ts('One anchor word and one picture per verse, in order. Walk the path in your mind before reciting: the order of the stations is the order of the verses.', 'كلمةٌ مفتاحية وصورةٌ لكل آية بالترتيب. امشِ في الطريق بذهنك قبل التسميع؛ فترتيب المحطات هو ترتيب الآيات.') : t('The opening words of each verse, in order. Recite the sūrah by walking these stations.', 'أوائل كلمات كل آية بالترتيب. سمِّع السورة بالمرور على هذه المحطات.')}</div>
+      <div className="muted small" style={{ marginBottom: 6 }}>{E && s.kind !== 'dua' ? ts('One anchor word and one picture per verse, in order. Walk the path in your mind before reciting: the order of the stations is the order of the verses.', 'كلمةٌ مفتاحية وصورةٌ لكل آية بالترتيب. امشِ في الطريق بذهنك قبل التسميع؛ فترتيب المحطات هو ترتيب الآيات.') : t('The opening words of each verse, in order, with what the verse says. Recite the sūrah by walking these stations.', 'أوائل كلمات كل آية بالترتيب. سمِّع السورة بالمرور على هذه المحطات.')}</div>
       <div className="journey">
         {s.v.map((v) => {
           const head = E && v.sec && v.sec !== lastSec ? <div className="secthead" style={{ '--sec': v.color }}>{`${ts(v.sec.title, v.sec.ar)} · ${nn(v.sec.from)}–${nn(v.sec.to)}`}</div> : null;
@@ -29,6 +29,8 @@ export default function MapView() {
           return (<div key={v.a}>{head}
             <div className="stn" data-n={nn(v.a)} style={{ '--sec': v.color }} onClick={() => open(v.a)}>
               <div className="row" style={{ gap: 6 }}><span className="a" dir="rtl">{word}</span>{!isAr() && v.ev?.anchor_en && <span className="en-gloss small">“{v.ev.anchor_en}”</span>}</div>
+              {!isAr() && !v.ev && v.tl && S.settings.showTl && <div className="tl small">{v.tl.slice(0, 2).join(' ')} …</div>}
+              {!isAr() && !v.ev && S.settings.showTr && s.tr?.v?.[v.a] && <div className="small muted clamp1">{s.tr.v[v.a]}</div>}
               {v.ev && <div className="small muted">{v.ev.icon}{'  '}{isAr() ? v.ev.hook_ar : rich(v.ev.hook)}</div>}
             </div>
           </div>);

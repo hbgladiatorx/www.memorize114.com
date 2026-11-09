@@ -2,7 +2,7 @@
 
 Reads tools/duas/<slug>.json (curated text, one entry per memorisation segment)
 and the Qurʾān files in web/public/data, then writes:
-  web/public/data/s<n>.json  words, normalised words, phrase starts, look-alikes
+  web/public/data/s<n>.json  words, normalised words, transliteration, phrase starts, look-alikes
   web/public/data/t<n>.json  English working translation
   web/public/data/e<n>.json  sections, about text, variant notes
 and adds the duʿāʾs to web/public/data/index.json under "duas".
@@ -14,6 +14,8 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools'))
+from translit import translit_words  # noqa: E402
 DATA = ROOT / 'web' / 'public' / 'data'
 SRC = Path(__file__).resolve().parent
 COLORS = ['#2F7D5B', '#B26B14', '#2D5F8E', '#7A4A8C', '#B23A5E', '#0F766E', '#8A6D1F', '#3B6E8F']
@@ -80,7 +82,7 @@ def build(slug, quran, qdf):
     for a, seg in enumerate(src['v'], 1):
         w = words(seg['ar'])
         nn = [norm(x) for x in w]
-        v = {'a': a, 'w': w, 'n': nn}
+        v = {'a': a, 'w': w, 'n': nn, 'tl': translit_words(w)}
         cl = seg.get('cl')
         v['c'] = chunk_starts(cl, len(w)) if cl else None
         out_v.append(v)

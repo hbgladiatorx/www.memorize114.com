@@ -165,6 +165,10 @@ function Settings({ onClose }) {
       <input type="checkbox" checked={isAr() ? st.showTrAr : st.showTr} onChange={(e) => setS(isAr() ? 'showTrAr' : 'showTr', e.target.checked)} />
       {ts('Show translation', 'اعرض الترجمة الإنجليزية أيضًا')}
     </label>
+    {!isAr() && <label className="row small" style={{ marginTop: 6 }}>
+      <input type="checkbox" checked={st.showTl} onChange={(e) => setS('showTl', e.target.checked)} />
+      {tq('Show transliteration (duʿāʾ)', '')}
+    </label>}
     <div className="hr" />
     <h3>{ts('Recitation', 'التلاوة')}</h3>
     <select value={st.reciter} onChange={(e) => setS('reciter', e.target.value)} style={{ width: '100%' }}>

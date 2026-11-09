@@ -301,3 +301,10 @@ select{width:auto}
 .dtile{max-width:34%}
 .heat.many i{font-size:9px;letter-spacing:-.3px}
 .surah-btn .ar{white-space:nowrap}
+/* transliteration */
+.tl{font-family:var(--serif, 'Source Serif 4', serif);font-style:italic;color:color-mix(in srgb,var(--sec,var(--teal)) 75%,var(--ink));line-height:1.55;margin:4px 0 2px;direction:ltr;text-align:left}
+.trans + .tl,.tl + .trans{margin-top:6px}
+.tlblock{margin:2px 0 14px;padding:6px 10px;border-inline-start:3px solid color-mix(in srgb,var(--sec) 45%,transparent);background:color-mix(in srgb,var(--sec) 5%,transparent);border-radius:8px;font-family:Inter,system-ui,sans-serif;font-size:14px}
+.tlblock .tl{font-size:15px;margin:0 0 2px}
+.clamp1{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.seg button.on .gl,.seg button.on .gl .ar-inline,.btn.primary .gl .ar-inline{color:inherit}
