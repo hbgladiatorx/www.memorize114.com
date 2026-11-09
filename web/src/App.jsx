@@ -94,9 +94,6 @@ export default function App() {
           <Route path="*" element={<div className="empty">{ts('Page not found.', 'الصفحة غير موجودة.')}</div>} />
         </Routes>
       </main>
-      <footer className="foot tiny faint">
-        {t('Text: King Fahd Complex (KFGQPC) Hafs v18 · Translation: Ali Quli Qarai via Tanzil.net · Recitation: everyayah.com', 'النص: مجمّع الملك فهد (حفص، الإصدار ١٨) · الترجمة: علي قلي قرائي عبر Tanzil.net · التلاوة: everyayah.com')}
-      </footer>
     </div>
     <nav className="tabs"><div className="wrap">
       {TABS.map(([p, ic, en, ar, c, cs]) => (
