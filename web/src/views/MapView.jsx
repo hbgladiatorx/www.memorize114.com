@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MushafPage } from '../components/Mushaf.jsx';
-import { logActivity } from '../lib/store.js';
+import { logActivity, prog } from '../lib/store.js';
+import { retr } from '../lib/fsrs.js';
 import { Seg } from '../components/ui.jsx';
 import { toAr } from '../lib/arabic.js';
 import { cur, set } from '../lib/cur.js';
-import { t, ts, nn, isAr, rich, richAr } from '../lib/i18n.jsx';
+import { t, ts, tq, nn, isAr, rich, richAr } from '../lib/i18n.jsx';
 
 const COLS = ['var(--green)', 'var(--amber)', 'var(--rose)', 'var(--violet)', 'var(--blue)', 'var(--teal)'];
 
@@ -15,11 +16,11 @@ export default function MapView() {
   const pages = [...new Set(s.v.map((v) => v.p))];
   let lastSec = null;
   return (<>
-    <PageMap key={s.n} s={s} pages={pages} open={open} />
+    {s.kind === 'dua' ? <DuaMap s={s} open={open} /> : <PageMap key={s.n} s={s} pages={pages} open={open} />}
 
     <div className="card topline" style={{ '--sec': 'var(--violet)' }}>
       <h2>{ts('Memory journey', 'رحلة الذاكرة')}</h2>
-      <div className="muted small" style={{ marginBottom: 6 }}>{E ? ts('One anchor word and one picture per verse, in order. Walk the path in your mind before reciting: the order of the stations is the order of the verses.', 'كلمةٌ مفتاحية وصورةٌ لكل آية بالترتيب. امشِ في الطريق بذهنك قبل التسميع؛ فترتيب المحطات هو ترتيب الآيات.') : t('The opening words of each verse, in order. Recite the sūrah by walking these stations.', 'أوائل كلمات كل آية بالترتيب. سمِّع السورة بالمرور على هذه المحطات.')}</div>
+      <div className="muted small" style={{ marginBottom: 6 }}>{E && s.kind !== 'dua' ? ts('One anchor word and one picture per verse, in order. Walk the path in your mind before reciting: the order of the stations is the order of the verses.', 'كلمةٌ مفتاحية وصورةٌ لكل آية بالترتيب. امشِ في الطريق بذهنك قبل التسميع؛ فترتيب المحطات هو ترتيب الآيات.') : t('The opening words of each verse, in order. Recite the sūrah by walking these stations.', 'أوائل كلمات كل آية بالترتيب. سمِّع السورة بالمرور على هذه المحطات.')}</div>
       <div className="journey">
         {s.v.map((v) => {
           const head = E && v.sec && v.sec !== lastSec ? <div className="secthead" style={{ '--sec': v.color }}>{`${ts(v.sec.title, v.sec.ar)} · ${nn(v.sec.from)}–${nn(v.sec.to)}`}</div> : null;
@@ -46,6 +47,27 @@ export default function MapView() {
         </div>); })}
     </div>}
   </>);
+}
+
+/* ---------- the duʿāʾ map: its sections as coloured bands, each passage a tile sized by its length ---------- */
+function DuaMap({ s, open }) {
+  const P = prog(s.n); const now = Date.now();
+  const secs = s.enrich?.sections || [];
+  const maxW = Math.max(...s.v.map((v) => v.w.length));
+  return (
+    <div className="card topline" style={{ '--sec': 'var(--amber)' }}>
+      <h2>{tq('The shape of the duʿāʾ', 'خريطة الدعاء')}</h2>
+      <div className="muted small" style={{ margin: '4px 0 12px' }}>{tq('Its movements in order, each passage a tile as long as its words. Learn one movement at a time, and say the movement titles in order before you recite. Darker tiles are held more strongly.', 'مقاطعه بالترتيب، وكل فقرة لوحٌ بطول كلماتها. احفظ مقطعًا مقطعًا، وردِّد عناوين المقاطع بالترتيب قبل التسميع. الألواح الأغمق أثبتُ في الحفظ.')}</div>
+      <div className="dmap">{secs.map((x) => (
+        <div key={x.id} className="dband" style={{ '--sec': x.color }}>
+          <div className="dhead"><span className="dletter">{nn(secs.indexOf(x) + 1)}</span><b>{isAr() ? x.ar : x.title}</b><span className="tiny faint">{nn(x.from)}–{nn(x.to)}</span></div>
+          <div className="dtiles">{s.v.slice(x.from - 1, x.to).map((v) => { const c = P.cards[v.a]; const r = c ? retr(c, now) : 0; return (
+            <button key={v.a} className={'dtile' + (c ? ' on' : '')} title={v.w.slice(0, 4).join(' ')} onClick={() => open(v.a)}
+              style={{ flexGrow: v.w.length, '--k': c ? Math.round(30 + r * 70) + '%' : '10%', minWidth: Math.round(18 + 30 * v.w.length / maxW) + 'px' }}>
+              <span>{toAr(v.a)}</span><i dir="rtl">{v.w[0]}</i></button>); })}</div>
+        </div>))}</div>
+    </div>
+  );
 }
 
 /* ---------- the page map: an open muṣḥaf, three ways of looking at it ---------- */

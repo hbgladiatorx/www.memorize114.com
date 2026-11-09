@@ -270,3 +270,34 @@ select{width:auto}
 .mpno{font-family:Hafs;font-size:14px;color:#A87A2A;min-width:34px;text-align:center;padding:0 8px;border-radius:999px;border:1.5px solid #C9A04F;background:var(--paper)}
 .mfocus{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--sec) 9%,var(--paper));border:1px solid color-mix(in srgb,var(--sec) 30%,var(--line));margin-bottom:6px}
 .mprompt{padding:10px 12px;border-radius:14px;margin-bottom:12px;background:color-mix(in srgb,var(--sec) 8%,var(--paper));border-inline-start:4px solid var(--sec)}
+/* ---- duʿāʾ ---- */
+.num.dnum{font-family:var(--arui);display:inline-flex;align-items:center;justify-content:center;min-width:1.55em;height:1.55em;padding:0 .2em;margin:0 .25em;border-radius:999px;font-size:.5em;font-weight:700;vertical-align:.35em;color:var(--sec,var(--green));background:color-mix(in srgb,var(--sec,var(--green)) 13%,transparent);border:1.5px solid color-mix(in srgb,var(--sec,var(--green)) 45%,transparent)}
+.sheader.dua{background:linear-gradient(90deg,#7A4A8C,#B26B14 50%,#7A4A8C)}
+.surah-btn.isdua{background:linear-gradient(90deg,rgba(183,121,31,.35),rgba(122,74,140,.35))}
+.slist .sgroup{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);padding:12px 4px 4px;border-bottom:2px solid var(--line)}
+.slist .dn{font-size:18px;color:var(--gold);text-align:center}
+.slist button.dua .ar{color:var(--violet)}
+.secmap{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px}
+.secmap button{display:flex;flex-direction:column;gap:2px;text-align:start;border:1px solid color-mix(in srgb,var(--sec) 35%,var(--line));border-inline-start:4px solid var(--sec);background:color-mix(in srgb,var(--sec) 7%,var(--paper));border-radius:10px;padding:7px 9px;font-size:13px}
+.secmap b{color:var(--sec);font-size:12px}
+.pagebreak.secbreak{color:var(--sec);border-color:color-mix(in srgb,var(--sec) 40%,var(--line));font-family:var(--arprose)}
+.dmap{display:flex;flex-direction:column;gap:12px}
+.dband{border-radius:14px;padding:10px;background:color-mix(in srgb,var(--sec) 7%,var(--paper));border:1px solid color-mix(in srgb,var(--sec) 28%,var(--line))}
+.dhead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dhead b{color:var(--sec)}
+.dhead .tiny{margin-inline-start:auto}
+.dletter{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--sec);color:#fff;font-weight:800;font-size:12px;flex:none}
+.dtiles{display:flex;flex-wrap:wrap;gap:4px;direction:rtl}
+.dtile{flex-basis:0;height:46px;border:0;border-radius:8px;padding:3px 5px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;
+  background:color-mix(in srgb,var(--sec) var(--k),var(--paper));color:var(--sec);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sec) 35%,transparent);cursor:pointer;transition:transform .12s}
+.dtile:hover{transform:translateY(-2px)}
+.dtile.on{color:#fff}
+.dtile span{font-family:var(--arui);font-size:11px;font-weight:800;line-height:1}
+.dtile i{font-style:normal;font-family:Hafs;font-size:15px;line-height:1.3;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:clip}
+.simgroup{margin-top:14px;font-weight:800;font-size:13px;color:var(--rose)}
+.simbox.fromq{border-top-color:color-mix(in srgb,var(--green) 40%,var(--line))}
+.simbox.fromq .ref{color:var(--green)}
+.dhead .tiny{white-space:nowrap}
+.dtile{max-width:34%}
+.heat.many i{font-size:9px;letter-spacing:-.3px}
+.surah-btn .ar{white-space:nowrap}

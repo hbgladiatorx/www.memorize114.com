@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { api } from '../lib/api.js';
 import { S } from '../lib/store.js';
-import { D } from '../lib/data.js';
+import { D, meta, isDua } from '../lib/data.js';
 import { toAr } from '../lib/arabic.js';
 import { ts, t, isAr } from '../lib/i18n.jsx';
 import { toast, useAsync } from '../components/ui.jsx';
 
-const sName = (n) => (isAr() ? D.index[n - 1].ar : `${n}. ${D.index[n - 1].en}`);
+const sName = (n) => (isAr() ? meta(n).ar : isDua(n) ? meta(n).en : `${n}. ${meta(n).en}`);
 const when = (ms) => (ms ? new Date(ms).toLocaleDateString(isAr() ? 'ar' : undefined, { day: 'numeric', month: 'short', year: 'numeric' }) : '—');
 
 function SurahChooser({ value, onChange }) {
@@ -15,7 +15,7 @@ function SurahChooser({ value, onChange }) {
   return (<div>
     <div className="row" style={{ gap: 6 }}>{value.map((n) => <span key={n} className="pill" style={{ '--pc': 'var(--blue)' }}>{sName(n)} <button className="linkbtn" onClick={() => onChange(value.filter((x) => x !== n))}>×</button></span>)}</div>
     <div className="row" style={{ marginTop: 6 }}>
-      <select value={pick} onChange={(e) => setPick(e.target.value)}><option value="">{ts('Add a sūrah…', 'أضِف سورة…')}</option>{D.index.map((s) => <option key={s.n} value={s.n}>{sName(s.n)}</option>)}</select>
+      <select value={pick} onChange={(e) => setPick(e.target.value)}><option value="">{ts('Add a sūrah or duʿāʾ…', 'أضِف سورة أو دعاء…')}</option><optgroup label={ts('Duʿāʾ', 'الأدعية')}>{D.duas.map((s) => <option key={s.n} value={s.n}>{sName(s.n)}</option>)}</optgroup><optgroup label={ts('Qurʾān', 'القرآن')}>{D.index.map((s) => <option key={s.n} value={s.n}>{sName(s.n)}</option>)}</optgroup></select>
       <button type="button" className="btn sm" disabled={!pick} onClick={() => { const n = +pick; if (!value.includes(n)) onChange([...value, n].sort((a, b) => a - b)); setPick(''); }}>{ts('Add', 'أضِف')}</button>
     </div>
   </div>);
@@ -105,7 +105,7 @@ export function ClassDetail() {
               <span className="tiny faint">{ts('Last active ', 'آخر نشاط ')}{when(m.lastActive)}</span>
               <button className="linkbtn" style={{ color: 'var(--red)' }} onClick={() => removeMember(m.id)}>{ts('remove', 'إزالة')}</button></div>
             <div className="rgrid">
-              {c.surahs.map((n) => { const p = m.perSurah[n]; const total = D.index[n - 1].ay; const pct = p ? Math.round((p.started / total) * 100) : 0; return (
+              {c.surahs.map((n) => { const p = m.perSurah[n]; const total = meta(n).ay; const pct = p ? Math.round((p.started / total) * 100) : 0; return (
                 <div key={n} className="rcell">
                   <div className="tiny" style={{ fontWeight: 700 }}>{sName(n)}</div>
                   <div className="progressbar"><i style={{ width: pct + '%' }} /></div>

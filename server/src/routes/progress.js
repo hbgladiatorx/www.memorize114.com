@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { q } from '../db.js';
 import { requireUser } from '../auth.js';
+import { validItem } from '../config.js';
 
 const r = Router();
 r.use(requireUser);
@@ -30,7 +31,7 @@ r.put('/settings', async (req, res) => {
 
 r.put('/surah/:n', async (req, res) => {
   const n = +req.params.n; const data = req.body?.data;
-  if (!Number.isInteger(n) || n < 1 || n > 114 || !isObj(data) || !isObj(data.cards || {})) return res.status(400).json({ error: 'bad_data', code: 'bad_data' });
+  if (!validItem(n) || !isObj(data) || !isObj(data.cards || {})) return res.status(400).json({ error: 'bad_data', code: 'bad_data' });
   const started = Object.keys(data.cards || {}).length;
   await q(`INSERT INTO progress (user_id, surah, data, started, updated_at) VALUES ($1, $2, $3, $4, now())
            ON CONFLICT (user_id, surah) DO UPDATE SET data = EXCLUDED.data, started = EXCLUDED.started, updated_at = now()`, [req.user.id, n, data, started]);

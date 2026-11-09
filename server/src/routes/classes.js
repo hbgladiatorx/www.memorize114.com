@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import crypto from 'node:crypto';
 import { q, one } from '../db.js';
-import { AYAH_COUNT } from '../config.js';
+import { AYAH_COUNT, validItem } from '../config.js';
 import { requireUser, requireRole } from '../auth.js';
 import { summarize } from '../../../web/src/lib/fsrs.js';
 
@@ -11,7 +11,7 @@ r.use(requireUser);
 const LETTERS = 'ABCDEFGHJKLMNPQRSTUVWXYZ', DIGITS = '23456789';
 const pick = (set, n) => Array.from(crypto.randomBytes(n), (b) => set[b % set.length]).join('');
 const newCode = () => `${pick(LETTERS, 3)}-${pick(DIGITS, 4)}`;
-const cleanSurahs = (x) => [...new Set((Array.isArray(x) ? x : []).map(Number).filter((n) => Number.isInteger(n) && n >= 1 && n <= 114))].sort((a, b) => a - b);
+const cleanSurahs = (x) => [...new Set((Array.isArray(x) ? x : []).map(Number).filter(validItem))].sort((a, b) => a - b);
 const canManage = (user, cls) => cls && (String(cls.teacher_id) === String(user.id) || user.role === 'admin');
 const shape = (c) => ({ id: String(c.id), name: c.name, code: c.code, surahs: c.surahs, createdAt: c.created_at });
 

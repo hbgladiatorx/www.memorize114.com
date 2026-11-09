@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { api } from '../lib/api.js';
 import { S } from '../lib/store.js';
-import { D } from '../lib/data.js';
+import { meta } from '../lib/data.js';
 import { toAr } from '../lib/arabic.js';
 import { ts, nn, isAr } from '../lib/i18n.jsx';
 import { toast, useAsync } from '../components/ui.jsx';
@@ -44,7 +44,7 @@ export default function Admin() {
     {s.topSurahs.length > 0 && <div className="card topline" style={{ '--sec': 'var(--amber)' }}>
       <h2>{ts('Most memorised sūrahs', 'أكثر السور حفظًا')}</h2>
       {s.topSurahs.map((x) => <div key={x.n} className="row small" style={{ padding: '4px 0', borderBottom: '1px solid var(--line)' }}>
-        <span className="ar-inline">{D.index[x.n - 1].ar}</span>{!isAr() && <span>{D.index[x.n - 1].en}</span>}<span className="spacer" />
+        <span className="ar-inline">{meta(x.n).ar}</span>{!isAr() && <span>{meta(x.n).en}</span>}<span className="spacer" />
         <span className="muted">{ts(`${x.users} users · ${x.verses} verses started`, `${toAr(x.users)} مستخدم · ${toAr(x.verses)} آية`)}</span></div>)}
     </div>}
     <div className="card topline" style={{ '--sec': 'var(--teal)' }}>

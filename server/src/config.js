@@ -18,6 +18,7 @@ export const config = {
   serveStatic: process.env.SERVE_STATIC === '1',
 };
 
-// Verse count per sūrah, for progress summaries.
+// Verse count per sūrah (and passage count per duʿāʾ), for progress summaries.
 const index = JSON.parse(readFileSync(path.join(ROOT, 'web/public/data/index.json'), 'utf8'));
-export const AYAH_COUNT = Object.fromEntries(index.surahs.map((s) => [s.n, s.ay]));
+export const AYAH_COUNT = Object.fromEntries([...index.surahs, ...(index.duas || [])].map((s) => [s.n, s.ay]));
+export const validItem = (n) => Number.isInteger(n) && n in AYAH_COUNT;

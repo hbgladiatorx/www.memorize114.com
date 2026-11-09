@@ -2,9 +2,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toAr } from '../lib/arabic.js';
 import { S, prog } from '../lib/store.js';
 import { cur, set, openSurah } from '../lib/cur.js';
-import { D } from '../lib/data.js';
+import { meta } from '../lib/data.js';
 import { retr, DAY } from '../lib/fsrs.js';
-import { t, ts, nn, isAr } from '../lib/i18n.jsx';
+import { t, ts, tq, tsq, nn, isAr } from '../lib/i18n.jsx';
 
 const dayKey = (ms) => new Date(ms - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
 
@@ -27,7 +27,7 @@ export default function Today({ classes }) {
   const strong = s.v.filter((v) => retr(P.cards[v.a], now) >= 0.9 && P.cards[v.a].S >= 21).length;
   const q = queue(s);
   let streak = 0; for (let dt = Date.now(); S.settings.days[dayKey(dt)]; dt -= DAY) streak++;
-  const p0 = s.v[0].p, p1 = s.v[s.v.length - 1].p;
+  const p0 = s.v[0].p, p1 = s.v[s.v.length - 1].p; // pages: Qurʾān only
   const openVerse = (a, step) => { set({ verse: a, mode: 'verse', learnStep: step }); nav('/learn'); };
   const revise = (vs) => { set({ session: vs }); nav('/test'); };
   const total = q.new.length + q.sabqi.length + q.manzil.length;
@@ -46,15 +46,20 @@ export default function Today({ classes }) {
       <h2>{ts('Assigned by your teacher', 'ما كلّفك به معلّمك')}</h2>
       <div className="row" style={{ marginTop: 6 }}>{assigned.map(({ n, cls }) => (
         <button key={n} className={'btn sm' + (n === s.n ? ' primary' : '')} style={{ '--accent': 'var(--blue)' }} onClick={() => openSurah(n)}>
-          <span className="ar-inline">{D.index[n - 1].ar}</span>{!isAr() && ' · ' + D.index[n - 1].en}<span className="tiny faint">{' · ' + cls}</span>
+          <span className="ar-inline">{meta(n).ar}</span>{!isAr() && ' · ' + meta(n).en}<span className="tiny faint">{' · ' + cls}</span>
         </button>))}</div>
     </div>}
 
     <div className="card topline tint" style={{ '--sec': 'var(--teal)' }}>
       <div className="row">
         <div>
-          <h2>{t('Sūrat ', 'سورة ')}<span>{isAr() ? s.ar : s.en}</span></h2>
-          <div className="muted small">{t(`${s.v.length} verses · page ${p0}${p1 !== p0 ? '–' + p1 : ''} · juzʾ ${s.v[0].j}`, `آياتها ${toAr(s.v.length)} · الصفحة ${toAr(p0)}${p1 !== p0 ? '–' + toAr(p1) : ''} · الجزء ${toAr(s.v[0].j)}`)}</div>
+          {s.kind === 'dua' ? (<>
+            <h2>{isAr() ? s.ar : s.en}</h2>
+            <div className="muted small">{tq(`${s.v.length} passages · ${s.v.reduce((x, v) => x + v.w.length, 0)} words · Mafātīḥ al-Jinān`, `${toAr(s.v.length)} فقرة · ${toAr(s.v.reduce((x, v) => x + v.w.length, 0))} كلمة · مفاتيح الجنان`)}</div>
+          </>) : (<>
+            <h2>{t('Sūrat ', 'سورة ')}<span>{isAr() ? s.ar : s.en}</span></h2>
+            <div className="muted small">{t(`${s.v.length} verses · page ${p0}${p1 !== p0 ? '–' + p1 : ''} · juzʾ ${s.v[0].j}`, `آياتها ${toAr(s.v.length)} · الصفحة ${toAr(p0)}${p1 !== p0 ? '–' + toAr(p1) : ''} · الجزء ${toAr(s.v[0].j)}`)}</div>
+          </>)}
         </div>
         <span className="spacer" /><div className="big-ar">{s.ar}</div>
       </div>
@@ -65,10 +70,18 @@ export default function Today({ classes }) {
         <div className="stat" style={{ '--c': 'var(--amber)' }}><b>{nn(streak)}</b><span>{ts('day streak', 'أيام متتالية')}</span></div>
       </div>
       <div className="tiny faint" style={{ margin: '12px 0 6px' }}>{ts('Memory strength now, verse by verse — tap one to open it', 'قوّة الحفظ الآن آيةً آية — اضغط لفتحها')}</div>
-      <div className="heat">{s.v.map((v) => { const c = P.cards[v.a]; const r = retr(c, now); return (
+      <div className={"heat" + (s.v.length > 99 ? " many" : "")}>{s.v.map((v) => { const c = P.cards[v.a]; const r = retr(c, now); return (
         <i key={v.a} style={{ background: c ? `color-mix(in srgb, ${v.color} ${Math.round(25 + r * 75)}%, var(--paper))` : `color-mix(in srgb, ${v.color} 12%, var(--paper))`, color: r > 0.6 ? '#fff' : v.color }}
           title={c ? `${Math.round(r * 100)}%` : ''} onClick={() => openVerse(v.a, c ? 'recall' : 'read')}>{toAr(v.a)}</i>); })}</div>
     </div>
+
+    {s.kind === 'dua' && s.enrich?.note && <div className="card topline" style={{ '--sec': 'var(--gold)' }}>
+      <h2>{tq('About this duʿāʾ', 'عن هذا الدعاء')}</h2>
+      <div className="small" style={{ lineHeight: 1.7 }}>{isAr() ? s.enrich.note.ar : t(s.enrich.note.en, '')}</div>
+      <div className="secmap">{s.enrich.sections.map((x) => (
+        <button key={x.id} style={{ '--sec': x.color }} onClick={() => openVerse(x.from, P.cards[x.from] ? 'recall' : 'read')}>
+          <b>{nn(x.from)}–{nn(x.to)}</b><span>{isAr() ? x.ar : x.title}</span></button>))}</div>
+    </div>}
 
     <div className="card topline" style={{ '--sec': 'var(--green)' }}>
       <div className="row"><h2>{ts("Today's portion", 'وِرد اليوم')}</h2><span className="spacer" />{total > 0 && <span className="pill" style={{ '--pc': 'var(--green)' }}>{ts(`${total} item${total > 1 ? 's' : ''}`, `العناصر: ${toAr(total)}`)}</span>}</div>

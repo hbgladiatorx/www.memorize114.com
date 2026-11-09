@@ -11,6 +11,7 @@ Live at **https://www.memorize114.com**
 | `web/` | The site — React (Vite). `web/public/data/` holds the Qurʾān text, layout, look-alike index and translation; `web/public/fonts/` the KFGQPC Hafs font |
 | `server/` | The API — Node (Express 5) + PostgreSQL: accounts, progress sync, classes, admin |
 | `deploy/` | Scripts and config for the Lightsail server |
+| `tools/duas/` | The duʿāʾ texts (Kumayl, al-ʿAhd) as curated sources, and `build.py`, which turns them into the app's data files |
 
 ## Putting it on Lightsail (first time)
 
@@ -76,4 +77,5 @@ cd web && npm install && npm run dev                          # site on :5173
 - **Qurʾān text, page/line layout and font**: King Fahd Glorious Qurʾān Printing Complex (KFGQPC), Uthmanic Hafs v18 — free to use; the text must not be altered.
 - **English translation**: Ali Quli Qarai, via Tanzil.net — non-commercial use, unaltered, with credit (shown under every verse).
 - **Recitation**: streamed per verse from everyayah.com (al-ʿAfāsī by default; al-Ḥuṣarī and al-Minshāwī selectable).
+- **Duʿāʾ Kumayl and Duʿāʾ al-ʿAhd** (ids 201 and 202): text as given in Mafātīḥ al-Jinān (Shaykh ʿAbbās al-Qummī) — Kumayl from al-Ṭūsī's *Miṣbāḥ al-Mutahajjid*, al-ʿAhd from Ibn Ṭāwūs's *Miṣbāḥ al-Zāʾir*. Checked word by word against independent digital editions (three for Kumayl, two for al-ʿAhd); manuscript variants are shown on the passages they affect. The English is a working translation written for this app and should be reviewed. Edit `tools/duas/*.json`, then run `python3 tools/duas/build.py` and commit the regenerated files in `web/public/data/`.
 - **Guided layers** for al-Jumuʿah (62) and al-Mursalāt (77) in `web/public/data/e062.json` and `e077.json` — memory hooks, Arabic meanings and look-alike notes written for this app; every Qurʾānic quotation in them was checked verbatim against the KFGQPC text.

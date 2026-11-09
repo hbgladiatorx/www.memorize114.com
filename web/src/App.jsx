@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { S, useStore, persist, loadUser, resetSurah } from './lib/store.js';
 import { cur, openSurah } from './lib/cur.js';
-import { D, loadIndex, GUIDED } from './lib/data.js';
+import { D, loadIndex, GUIDED, isDua } from './lib/data.js';
 import { api } from './lib/api.js';
 import { RECITERS, stopAudio } from './lib/audio.js';
 import { toAr } from './lib/arabic.js';
-import { t, ts, nn, isAr, resetGloss } from './lib/i18n.jsx';
+import { t, ts, tq, tsq, nn, isAr, resetGloss } from './lib/i18n.jsx';
 import { Icon, Toast, Sheet, Seg, toast } from './components/ui.jsx';
 import Today from './views/Today.jsx';
 import Learn from './views/Learn.jsx';
@@ -64,12 +64,14 @@ export default function App() {
   if (failed) return <div className="empty">{ts('The Qurʾān text could not be loaded. Reload the page to try again.', 'تعذّر تحميل نص القرآن. أعِد تحميل الصفحة.')}</div>;
   if (!ready || !cur.surah) return <div className="empty" style={{ paddingTop: 80 }}>{ts('Loading the muṣḥaf…', 'جارٍ تحميل المصحف…')}</div>;
   const s = cur.surah;
+  // Study tabs speak of passages while a duʿāʾ is open; account and class pages keep their own wording.
+  D.mode = s.kind === 'dua' && ['/', '/learn', '/test', '/similar', '/map'].includes(loc.pathname) ? 'dua' : 'quran';
   return (<>
     <div className="app">
       <header className="top">
         <Link to="/" className="brand">{isAr() ? 'حِفظ' : 'Memorize 114 '}{!isAr() && <span className="ar-inline" dir="rtl">حِفْظُ الْقُرْآن</span>}
           <small>{S.user ? (S.sync === 'synced' ? ts('✓ Saved to your account', '✓ محفوظ في حسابك') : S.sync === 'offline' ? ts('Offline — will sync', 'غير متصل — ستتم المزامنة') : ts('Syncing…', 'جارٍ المزامنة…')) : ts('Qurʾān memorisation', 'حفظ القرآن الكريم')}</small></Link>
-        <button className="surah-btn" onClick={() => setSheet('surah')} aria-label="Choose sūrah"><span className="tiny">{nn(s.n)}</span><span className="ar">{s.ar}</span></button>
+        <button className={'surah-btn' + (isDua(s.n) ? ' isdua' : '')} onClick={() => setSheet('surah')} aria-label="Choose sūrah or duʿāʾ"><span className="tiny">{isDua(s.n) ? tsq('duʿāʾ', 'دعاء') : nn(s.n)}</span><span className="ar">{s.ar}</span></button>
         <button className="icon-btn langbtn" onClick={() => { S.settings.lang = isAr() ? 'en' : 'ar'; persist('settings'); }} title={isAr() ? 'English' : 'العربية'}>{isAr() ? 'EN' : 'ع'}</button>
         <Link className={'icon-btn' + (S.user ? ' signed' : '')} to={S.user ? '/account' : '/login'} title={S.user ? S.user.name : ts('Sign in', 'تسجيل الدخول')}><Icon name="user" /></Link>
         <button className="icon-btn" onClick={() => setSheet('settings')} aria-label="Settings"><Icon name="gear" /></button>
@@ -112,15 +114,26 @@ const arBare = (x) => x.replace(/[ً-ٰٟ]/g, '');
 
 function SurahPicker({ onClose }) {
   const [q, setQ] = useState(''); const nav = useNavigate();
-  const list = D.index.filter((s) => !q || String(s.n) === q || toAr(s.n) === q || latin(s.en).includes(latin(q)) || arBare(s.ar).includes(arBare(q)));
+  const hit = (s) => !q || String(s.n) === q || toAr(s.n) === q || latin(s.en).includes(latin(q)) || arBare(s.ar).includes(arBare(q));
+  const list = D.index.filter(hit); const duas = D.duas.filter(hit);
   useEffect(() => { document.querySelector('.slist .on')?.scrollIntoView({ block: 'center' }); }, []);
+  const pick = async (n) => { onClose(); await openSurah(n); nav('/'); };
   return (<Sheet onClose={onClose}>
-    <h2>{t('Choose a sūrah', 'اختر سورة')}</h2>
-    <input type="search" autoFocus placeholder={ts('Search by name or number', 'ابحث بالاسم أو الرقم')} value={q} onChange={(e) => setQ(e.target.value)} />
-    <div className="slist">{list.map((s) => (
-      <button key={s.n} className={s.n === cur.surah.n ? 'on' : ''} onClick={async () => { onClose(); await openSurah(s.n); nav('/'); }}>
+    <h2>{tq('Choose a sūrah or duʿāʾ', 'اختر سورة أو دعاء')}</h2>
+    <input type="search" autoFocus placeholder={tsq('Search by name or number', 'ابحث بالاسم أو الرقم')} value={q} onChange={(e) => setQ(e.target.value)} />
+    <div className="slist">
+      {duas.length > 0 && <div className="sgroup">{tq('Supplications · duʿāʾ', 'الأدعية')}</div>}
+      {duas.map((s) => (
+        <button key={s.n} className={'dua' + (s.n === cur.surah.n ? ' on' : '')} onClick={() => pick(s.n)}>
+          <span className="n dn">{s.n === 201 ? '☾' : '☀'}</span>
+          <span><div style={{ fontWeight: 700 }}>{isAr() ? s.ar : s.en}</div><div className="tiny faint">{tsq(`${s.ay} passages · Mafātīḥ al-Jinān`, `${toAr(s.ay)} فقرة · مفاتيح الجنان`)}</div></span>
+          {!isAr() && <span className="ar">{s.ar}</span>}
+        </button>))}
+      {duas.length > 0 && list.length > 0 && <div className="sgroup">{tq('The Qurʾān · 114 sūrahs', 'القرآن الكريم · ١١٤ سورة')}</div>}
+      {list.map((s) => (
+      <button key={s.n} className={s.n === cur.surah.n ? 'on' : ''} onClick={() => pick(s.n)}>
         <span className="n">{nn(s.n)}</span>
-        <span><div style={{ fontWeight: 700 }}>{isAr() ? s.ar : s.en}</div><div className="tiny faint">{ts(`${s.ay} verses · page ${s.p}`, `آياتها ${toAr(s.ay)} · الصفحة ${toAr(s.p)}`)}{GUIDED.has(s.n) && <span className="pill guided" style={{ marginInlineStart: 6 }}>{ts('guided', 'مع الشرح')}</span>}</div></span>
+        <span><div style={{ fontWeight: 700 }}>{isAr() ? s.ar : s.en}</div><div className="tiny faint">{tsq(`${s.ay} verses · page ${s.p}`, `آياتها ${toAr(s.ay)} · الصفحة ${toAr(s.p)}`)}{GUIDED.has(s.n) && <span className="pill guided" style={{ marginInlineStart: 6 }}>{tsq('guided', 'مع الشرح')}</span>}</div></span>
         {!isAr() && <span className="ar">{s.ar}</span>}
       </button>))}</div>
   </Sheet>);

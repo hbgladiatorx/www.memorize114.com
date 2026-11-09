@@ -1,6 +1,6 @@
 import { toAr } from '../lib/arabic.js';
 import { cur, set } from '../lib/cur.js';
-import { t, ts, isAr, rich, richAr, refTxt } from '../lib/i18n.jsx';
+import { t, ts, tq, isAr, rich, richAr, refTxt } from '../lib/i18n.jsx';
 import { Verse, otherVerse, VerseChips, TrLine } from '../components/quran.jsx';
 import { diffSets } from './Test.jsx';
 
@@ -16,19 +16,21 @@ export default function Similar() {
       <div className="ayah" style={{ fontSize: 'calc(var(--ar-size)*.85)' }}><Verse v={v} /></div>
       <TrLine sn={s.n} a={v.a} color={v.color} />
       {v.ev?.watch && <div className="note"><b>{ts('How to keep them apart  ', 'كيف تميّز بينها  ')}</b>{isAr() ? richAr(v.ev.watch_ar) : rich(v.ev.watch)}</div>}
-      {!v.sim.length ? <div className="empty small">{ts('No verse elsewhere shares a run of four or more words with this one.', 'لا توجد آية أخرى تشترك معها في أربع كلمات متتالية أو أكثر.')}</div>
-        : v.sim.map((o) => {
+      {!v.sim.length ? <div className="empty small">{s.kind === 'dua' ? tq('No other passage of this duʿāʾ, and no Qurʾān verse, shares a notable run of words with this one.', 'لا تشترك معها فقرةٌ أخرى من الدعاء ولا آيةٌ من القرآن في كلماتٍ متتالية لافتة.') : ts('No verse elsewhere shares a run of four or more words with this one.', 'لا توجد آية أخرى تشترك معها في أربع كلمات متتالية أو أكثر.')}</div>
+        : v.sim.map((o, k) => {
           const [A, B] = diffSets(o.b, v.w.length, o.w.length);
           const shared = o.b.reduce((x, b) => x + b[2], 0);
-          return (<div className="simbox" key={o.s + ':' + o.a}>
+          const head = s.kind === 'dua' && (k === 0 || !!v.sim[k - 1].q !== !!o.q)
+            ? <div className="simgroup">{o.q ? tq('From the Qurʾān — quoted or echoed', 'من القرآن الكريم — اقتباسٌ أو صدى') : tq('Look-alikes elsewhere in this duʿāʾ', 'مواضع متشابهة في هذا الدعاء')}</div> : null;
+          return (<div key={o.s + ':' + o.a}>{head}<div className={'simbox' + (o.q ? ' fromq' : '')}>
             <div className="row"><span className="ref">{refTxt(o.s, o.a)}</span><span className="spacer" /><span className="pill" style={{ '--pc': 'var(--rose)' }}>{ts(`${shared} shared words`, `كلمات مشتركة: ${toAr(shared)}`)}</span></div>
             <div className="ayah"><Verse v={otherVerse(o)} diff={B} noNum /></div>
             <TrLine sn={o.s} a={o.a} />
             <details><summary className="tiny" style={{ cursor: 'pointer', color: 'var(--rose)', fontWeight: 700 }}>{ts(`▸ Show ${refTxt(s.n, v.a)} with its differences`, `◂ اعرض ${refTxt(s.n, v.a)} مع مواضع الاختلاف`)}</summary>
               <div className="ayah"><Verse v={v} diff={A} noNum /></div></details>
-          </div>);
+          </div></div>);
         })}
-      <div className="tiny faint" style={{ marginTop: 10 }}>{t('Found by comparing every verse of the Qurʾān word by word (consonantal skeleton, vowel marks ignored). Ranked by how much they share.', 'استُخرجت بمقارنة كل آيات القرآن كلمةً كلمة (بالرسم دون الحركات)، ورُتِّبت بحسب مقدار الاشتراك.')}</div>
+      <div className="tiny faint" style={{ marginTop: 10 }}>{s.kind === 'dua' ? tq('Found by comparing every passage word by word with the rest of the duʿāʾ and with every verse of the Qurʾān (consonantal skeleton, vowel marks ignored).', 'استُخرجت بمقارنة كل فقرة كلمةً كلمة ببقية الدعاء وبكل آيات القرآن (بالرسم دون الحركات).') : t('Found by comparing every verse of the Qurʾān word by word (consonantal skeleton, vowel marks ignored). Ranked by how much they share.', 'استُخرجت بمقارنة كل آيات القرآن كلمةً كلمة (بالرسم دون الحركات)، ورُتِّبت بحسب مقدار الاشتراك.')}</div>
     </div>
   </>);
 }

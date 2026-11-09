@@ -6,14 +6,19 @@ import { toAr, AR_RUN } from './arabic.js';
 import { D } from './data.js';
 
 export const isAr = () => S.settings.lang === 'ar';
-export const ts = (en, ar) => (isAr() ? ar : en); // plain string (attributes, toasts)
+// While a duʿāʾ is open, interface text speaks of passages and the duʿāʾ instead of verses and the sūrah.
+const DUA_EN = [[/\bVerses\b/g, 'Passages'], [/\bverses\b/g, 'passages'], [/\bVerse\b/g, 'Passage'], [/\bverse\b/g, 'passage'], [/\bSūrah\b/g, 'Duʿāʾ'], [/\bsūrah\b/g, 'duʿāʾ']];
+const DUA_AR = [[/السورة كاملة/g, 'الدعاء كاملًا'], [/هذه السورة/g, 'هذا الدعاء'], [/السورة/g, 'الدعاء'], [/آيات/g, 'فقرات'], [/آية/g, 'فقرة'], [/آيت/g, 'فقرت']];
+const duaWords = (x, ar) => (D.mode === 'dua' && typeof x === 'string' ? (ar ? DUA_AR : DUA_EN).reduce((y, [re, r]) => y.replace(re, r), x) : x);
+export const tsq = (en, ar) => (isAr() ? ar : en); // no duʿāʾ wording swap
+export const ts = (en, ar) => (isAr() ? duaWords(ar, true) : duaWords(en, false)); // plain string (attributes, toasts)
 export const nn = (n) => (isAr() ? toAr(n) : String(n));
 
 const GLOSS_BASE = {
   'ḥifẓ': 'حِفْظ', 'ḥāfiẓ': 'حَافِظ', 'Qurʾān': 'الْقُرْآن', 'sūrah': 'سُورَة', 'sūrat': 'سُورَة', 'muṣḥaf': 'مُصْحَف', 'juzʾ': 'جُزْء',
   'sabaq': 'سَبَق', 'sabqī': 'سَبْقِي', 'manzil': 'مَنْزِل', 'tasmīʿ': 'تَسْمِيع', 'mutashābihāt': 'مُتَشَابِهَات', 'talaqqī': 'تَلَقِّي',
   'tajwīd': 'تَجْوِيد', 'basmala': 'بَسْمَلَة', 'muʿallim': 'مُعَلِّم', 'al-Ḥuṣarī': 'الْحُصَرِي', 'al-ʿAfāsī': 'العَفَاسِي', 'al-Minshāwī': 'الْمِنْشَاوِي',
-  'murattal': 'مُرَتَّل', 'nūn': 'نُون', 'kasra': 'كَسْرَة', 'ḍamma': 'ضَمَّة', 'Ibrāhīm': 'إِبْرَاهِيم',
+  'murattal': 'مُرَتَّل', 'duʿāʾ': 'دُعَاء', 'Kumayl': 'كُمَيْل', 'Mafātīḥ al-Jinān': 'مَفَاتِيح الْجِنَان', 'nūn': 'نُون', 'kasra': 'كَسْرَة', 'ḍamma': 'ضَمَّة', 'Ibrāhīm': 'إِبْرَاهِيم',
   'al-Taghābun': 'التَّغَابُن', 'al-Ḥadīd': 'الْحَدِيد', 'al-Ḥashr': 'الْحَشْر', 'al-Ṣaff': 'الصَّفّ', 'Āl ʿImrān': 'آلِ عِمْرَان',
   'al-Baqarah': 'الْبَقَرَة', 'al-Tawbah': 'التَّوْبَة', 'al-ʿAnkabūt': 'الْعَنْكَبُوت', 'al-Anfāl': 'الْأَنْفَال', 'al-Jumuʿah': 'الْجُمُعَة',
   'al-Munāfiqūn': 'الْمُنَافِقُون', 'al-Mursalāt': 'الْمُرْسَلَات', 'al-Takwīr': 'التَّكْوِير', 'al-Infiṭār': 'الِانْفِطَار', 'al-Ṣāffāt': 'الصَّافَّات',
@@ -49,7 +54,8 @@ export function gloss(text) {
   return out.map((x, i) => <Fragment key={'g' + i}>{x}</Fragment>);
 }
 
-export const t = (en, ar) => (isAr() ? ar : gloss(en));
+export const t = (en, ar) => (isAr() ? duaWords(ar, true) : gloss(duaWords(en, false)));
+export const tq = (en, ar) => (isAr() ? ar : gloss(en));
 
 // English with embedded Arabic: Arabic in the Qurʾān font, “quoted” meanings in colour.
 export function rich(text) {
@@ -74,4 +80,7 @@ export function fmtDays(d) {
   return toAr((d / 365).toFixed(1)) + ' سنة';
 }
 
-export const refTxt = (sn, a) => (isAr() ? `[${D.index[sn - 1].ar}: ${toAr(a)}]` : `${D.index[sn - 1].en} ${sn}:${a}`);
+export const refTxt = (sn, a) => {
+  if (sn > 114) { const d = D.duas.find((x) => x.n === sn); return isAr() ? `[${d.ar}: ${toAr(a)}]` : `${d.en} · ${a}`; }
+  return isAr() ? `[${D.index[sn - 1].ar}: ${toAr(a)}]` : `${D.index[sn - 1].en} ${sn}:${a}`;
+};

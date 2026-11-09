@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toAr } from '../lib/arabic.js';
 import { S, prog, persist, logActivity } from '../lib/store.js';
 import { cur, set } from '../lib/cur.js';
-import { t, ts, nn, isAr, rich, richAr } from '../lib/i18n.jsx';
+import { t, ts, tq, nn, isAr, rich, richAr } from '../lib/i18n.jsx';
 import { Verse, SurahHead, SectionTag, VerseChips, Meaning, AudioBar, SurahPlayer, ReciteCheck, fadeHidden } from '../components/quran.jsx';
 import { Seg } from '../components/ui.jsx';
 
@@ -49,7 +49,7 @@ function LearnVerse({ s }) {
           </div>} />
       </>)}
       {cur.learnStep === 'link' && (v.a === 1 ? (
-        <div className="empty small">{t('Verse 1 has no previous verse in this sūrah — link it to the sūrah title and basmala instead: say them, then go straight into ', 'ليس قبل الآية الأولى آيةٌ في هذه السورة؛ فاربطها باسم السورة والبسملة: اقرأهما ثم ادخل مباشرة في ')}<span className="ar-inline">{v.w.slice(0, 3).join(' ')}</span>.</div>
+        <div className="empty small">{(s.kind === 'dua' ? tq('Passage 1 opens the duʿāʾ — link it to its name instead: say the name, then go straight into ', 'الفقرة الأولى هي مطلع الدعاء؛ فاربطها باسمه: اذكر اسمه ثم ادخل مباشرة في ') : t('Verse 1 has no previous verse in this sūrah — link it to the sūrah title and basmala instead: say them, then go straight into ', 'ليس قبل الآية الأولى آيةٌ في هذه السورة؛ فاربطها باسم السورة والبسملة: اقرأهما ثم ادخل مباشرة في '))}<span className="ar-inline">{v.w.slice(0, 3).join(' ')}</span>.</div>
       ) : (<>
         <div className="tiny faint" style={{ marginBottom: 6 }}>{ts('Junctions are where recitation breaks down. The end of the previous verse is shown faintly; recite on into this one.', 'مواضع الانتقال بين الآيات هي حيث يتعثّر الحافظ. نهاية الآية السابقة ظاهرة بلونٍ خافت؛ واصل القراءة إلى هذه الآية.')}</div>
         <ReciteCheck verses={[v]} limitFirstChunk noGrade contextBefore={(vv) => s.v[vv.a - 2]} />
@@ -68,7 +68,7 @@ function ReadStep({ s, v, P }) {
   return (<>
     <div className="row">
       <SectionTag v={v} /><span className="spacer" />
-      <span className="tiny faint">{(v.sec ? ts(`Page ${v.p} · `, `الصفحة ${toAr(v.p)} · `) : '') + (v.ls === v.le ? ts(`line ${v.ls}`, `السطر ${toAr(v.ls)}`) : ts(`lines ${v.ls}–${v.le}`, `الأسطر ${toAr(v.ls)}–${toAr(v.le)}`))}</span>
+      <span className="tiny faint">{v.dua ? ts(`${v.a} of ${s.v.length}`, `${toAr(v.a)} من ${toAr(s.v.length)}`) : (v.sec ? ts(`Page ${v.p} · `, `الصفحة ${toAr(v.p)} · `) : '') + (v.ls === v.le ? ts(`line ${v.ls}`, `السطر ${toAr(v.ls)}`) : ts(`lines ${v.ls}–${v.le}`, `الأسطر ${toAr(v.ls)}–${toAr(v.le)}`))}</span>
     </div>
     {v.a === 1 && <SurahHead s={s} />}
     <div className="ayah"><Verse v={v} anchor weak={P.miss[v.a]} /></div>
@@ -144,9 +144,12 @@ function LearnSurah({ s }) {
       <SurahHead s={s} />
       <div className="ayah">
         {s.v.map((v) => {
-          const brk = page !== null && v.p !== page; page = v.p;
+          const mark = v.dua ? v.sec?.id : v.p;
+          const brk = v.dua ? mark !== page : page !== null && mark !== page; page = mark;
           return (<span key={v.a}>
-            {brk && <div className="pagebreak">{ts(`page ${v.p}`, `الصفحة ${toAr(v.p)}`)}</div>}
+            {brk && (v.dua
+              ? <div className="pagebreak secbreak" style={{ '--sec': v.color }}>{isAr() ? v.sec.ar : v.sec.title}</div>
+              : <div className="pagebreak">{ts(`page ${v.p}`, `الصفحة ${toAr(v.p)}`)}</div>)}
             <span className={playing === v.a ? 'playing' : ''}>
               <Verse v={v} hidden={fadeHidden(v, f === 5 ? 4 : f, s.n)} blank={f === 5} weak={f === 0 ? P.miss[v.a] : null} peekable resetKey={f} onNum={(a) => set({ mode: 'verse', verse: a, learnStep: 'read' })} />
             </span>

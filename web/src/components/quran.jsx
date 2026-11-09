@@ -4,7 +4,7 @@ import { D, loadTr } from '../lib/data.js';
 import { S, prog, persist, logActivity } from '../lib/store.js';
 import { cur } from '../lib/cur.js';
 import { review, retr, previewDays } from '../lib/fsrs.js';
-import { t, ts, nn, isAr, fmtDays } from '../lib/i18n.jsx';
+import { t, ts, tsq, nn, isAr, fmtDays, rich } from '../lib/i18n.jsx';
 import { RECITERS, verseUrl, claimAudio, releaseAudio } from '../lib/audio.js';
 import { Icon, Seg, toast, useScrollActive } from './ui.jsx';
 
@@ -46,6 +46,7 @@ export function fadeHidden(v, level, surahN) {
 }
 
 export function SurahHead({ s }) {
+  if (s.kind === 'dua') return <div className="sheader dua">{s.ar}</div>;
   return (<>
     <div className="sheader">{'سُورَةُ ' + s.ar}</div>
     {s.n !== 1 && s.n !== 9 && <div className="basmala">{D.basmala.join(' ')}</div>}
@@ -70,6 +71,10 @@ export function VerseChips({ active, onPick }) {
 
 export function Meaning({ s, v }) {
   const qarai = s.tr?.v?.[v.a];
+  if (s.kind === 'dua') return (<>
+    {!isAr() && S.settings.showTr && qarai && <div className="trans" style={{ '--sec': v.color }}>{qarai}</div>}
+    {(v.note || v.var) && <div className="note small">{v.note && <div>{isAr() ? v.note_ar : v.note}</div>}{v.var && <div><b>{tsq('Note  ', 'تنبيه  ')}</b>{isAr() ? v.var_ar : rich(v.var)}</div>}</div>}
+  </>);
   if (isAr()) return (<>
     {v.ev?.mean_ar && <div className="trans arp" style={{ '--sec': v.color }}>{v.ev.mean_ar}<div className="src">المعنى الإجمالي — صياغة التطبيق</div></div>}
     {S.settings.showTrAr && qarai && <div className="trans" dir="ltr" style={{ '--sec': v.color, textAlign: 'left' }}>{qarai}</div>}
@@ -82,6 +87,10 @@ export function Meaning({ s, v }) {
 function bumpRead(a, n = 1) { const P = prog(cur.surah.n); P.reads[a] = (P.reads[a] || 0) + n; persist(cur.surah.n); }
 
 export function AudioBar({ v }) {
+  if (v.dua) return null; // no segment-by-segment recitation audio for the duʿāʾs yet
+  return <AudioBarQ v={v} />;
+}
+function AudioBarQ({ v }) {
   const st = S.settings; const [playing, setPlaying] = useState(false); const [info, setInfo] = useState('');
   const handle = useRef(null);
   useEffect(() => () => handle.current?.stop(), [v]);
@@ -114,6 +123,10 @@ export function AudioBar({ v }) {
 }
 
 export function SurahPlayer({ s, onVerse }) {
+  if (s.kind === 'dua') return null;
+  return <SurahPlayerQ s={s} onVerse={onVerse} />;
+}
+function SurahPlayerQ({ s, onVerse }) {
   const [playing, setPlaying] = useState(false); const [at, setAt] = useState(0);
   const handle = useRef(null);
   useEffect(() => () => handle.current?.stop(), [s]);

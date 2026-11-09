@@ -37,10 +37,10 @@ CREATE TABLE IF NOT EXISTS user_settings (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
--- Memorisation progress, one row per user per sūrah.
+-- Memorisation progress, one row per user per sūrah (1–114) or duʿāʾ (201+).
 CREATE TABLE IF NOT EXISTS progress (
   user_id    bigint NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  surah      smallint NOT NULL CHECK (surah BETWEEN 1 AND 114),
+  surah      smallint NOT NULL CONSTRAINT progress_surah_check CHECK (surah BETWEEN 1 AND 114 OR surah BETWEEN 201 AND 299),
   data       jsonb NOT NULL,
   started    integer NOT NULL DEFAULT 0,          -- verses with a schedule, for quick stats
   updated_at timestamptz NOT NULL DEFAULT now(),
@@ -72,3 +72,11 @@ CREATE TABLE IF NOT EXISTS class_members (
   PRIMARY KEY (class_id, user_id)
 );
 CREATE INDEX IF NOT EXISTS class_members_user_idx ON class_members(user_id);
+
+-- Allow duʿāʾ ids (201+) on databases created before they existed.
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'progress_surah_check' AND pg_get_constraintdef(oid) LIKE '%201%') THEN
+    ALTER TABLE progress DROP CONSTRAINT IF EXISTS progress_surah_check;
+    ALTER TABLE progress ADD CONSTRAINT progress_surah_check CHECK (surah BETWEEN 1 AND 114 OR surah BETWEEN 201 AND 299);
+  END IF;
+END $$;

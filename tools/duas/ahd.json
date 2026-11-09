@@ -1,0 +1,208 @@
+{
+ "n": 202,
+ "slug": "ahd",
+ "ar": "دُعَاءُ الْعَهْد",
+ "en": "Duʿāʾ al-ʿAhd",
+ "sections": [
+  {
+   "from": 1,
+   "to": 8,
+   "title": "Lord of the great light, O Ever-Living",
+   "ar": "رَبَّ النُّورِ الْعَظِيمِ، يَا حَيُّ"
+  },
+  {
+   "from": 9,
+   "to": 13,
+   "title": "Blessings conveyed to the Imam",
+   "ar": "الصَّلَواتُ على الإمام"
+  },
+  {
+   "from": 14,
+   "to": 18,
+   "title": "The renewed pledge",
+   "ar": "تَجْدِيدُ الْعَهْد"
+  },
+  {
+   "from": 19,
+   "to": 21,
+   "title": "If death comes between us",
+   "ar": "إِنْ حَالَ بَيْنِي وَبَيْنَهُ الْمَوْتُ"
+  },
+  {
+   "from": 22,
+   "to": 31,
+   "title": "Show me his face",
+   "ar": "أَرِنِي الطَّلْعَةَ الرَّشِيدَةَ"
+  },
+  {
+   "from": 32,
+   "to": 35,
+   "title": "Gladden the Prophet; the closing call",
+   "ar": "سُرُورُ النَّبِيِّ وَالنِّداء"
+  }
+ ],
+ "v": [
+  {
+   "ar": "اللَّهُمَّ رَبَّ النُّورِ الْعَظِيمِ وَرَبَّ الْكُرْسِيِّ الرَّفِيعِ وَرَبَّ الْبَحْرِ الْمَسْجُورِ",
+   "en": "O Allah, Lord of the great light, Lord of the lofty Seat, and Lord of the surging sea,"
+  },
+  {
+   "ar": "وَمُنْزِلَ التَّوْرَاةِ وَالْإِنْجِيلِ وَالزَّبُورِ وَرَبَّ الظِّلِّ وَالْحَرُورِ",
+   "en": "Revealer of the Torah, the Gospel and the Psalms, Lord of the shade and the scorching heat,"
+  },
+  {
+   "ar": "وَمُنْزِلَ الْقُرْآنِ الْعَظِيمِ وَرَبَّ الْمَلائِكَةِ الْمُقَرَّبِينَ وَالْأَنْبِيَاءِ وَالْمُرْسَلِينَ",
+   "en": "Revealer of the great Qurʾān, and Lord of the angels brought near, the prophets and the messengers.",
+   "var": "Some editions read الْفُرْقَانِ instead of الْقُرْآنِ; some omit the وَ before الْمُرْسَلِينَ.",
+   "var_ar": "في بعض النسخ: «الْفُرْقَانِ» بدل «الْقُرْآنِ»، وفي بعضها بلا واو قبل «الْمُرْسَلِينَ»."
+  },
+  {
+   "ar": "اللَّهُمَّ إِنِّي أَسْأَلُكَ بِوَجْهِكَ الْكَرِيمِ وَبِنُورِ وَجْهِكَ الْمُنِيرِ وَمُلْكِكَ الْقَدِيمِ",
+   "en": "O Allah, I ask You by Your noble Face, by the light of Your radiant Face, and by Your eternal kingdom.",
+   "var": "Some editions read بِاسْمِكَ instead of بِوَجْهِكَ.",
+   "var_ar": "في بعض النسخ: «بِاسْمِكَ» بدل «بِوَجْهِكَ»."
+  },
+  {
+   "ar": "يَا حَيُّ يَا قَيُّومُ أَسْأَلُكَ بِاسْمِكَ الَّذِي أَشْرَقَتْ بِهِ السَّمَاوَاتُ وَالْأَرَضُونَ",
+   "en": "O Ever-Living, O Self-Subsisting! I ask You by Your Name by which the heavens and the earths shine,"
+  },
+  {
+   "ar": "وَبِاسْمِكَ الَّذِي يَصْلَحُ بِهِ الْأَوَّلُونَ وَالْآخِرُونَ",
+   "en": "and by Your Name by which the first and the last are set right."
+  },
+  {
+   "ar": "يَا حَيّاً قَبْلَ كُلِّ حَيٍّ وَيَا حَيّاً بَعْدَ كُلِّ حَيٍّ وَيَا حَيّاً حِينَ لَا حَيَّ",
+   "en": "O Living One before every living thing, O Living One after every living thing, O Living One when nothing was living,"
+  },
+  {
+   "ar": "يَا مُحْيِيَ الْمَوْتَى وَمُمِيتَ الْأَحْيَاءِ يَا حَيُّ لَا إِلَهَ إِلَّا أَنْتَ.",
+   "en": "O Giver of life to the dead and Bringer of death to the living, O Ever-Living, there is no god but You."
+  },
+  {
+   "ar": "اللَّهُمَّ بَلِّغْ مَوْلانَا الْإِمَامَ الْهَادِيَ الْمَهْدِيَّ الْقَائِمَ بِأَمْرِكَ",
+   "en": "O Allah, convey to our master the Imam — the guide, the rightly guided, who rises by Your command,"
+  },
+  {
+   "ar": "صَلَوَاتُ اللَّهِ عَلَيْهِ وَعَلَى آبَائِهِ الطَّاهِرِينَ",
+   "en": "Allah's blessings be upon him and upon his pure forefathers —"
+  },
+  {
+   "ar": "عَنْ جَمِيعِ الْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ فِي مَشَارِقِ الْأَرْضِ وَمَغَارِبِهَا",
+   "en": "on behalf of all the believing men and women in the easts and the wests of the earth,"
+  },
+  {
+   "ar": "سَهْلِهَا وَجَبَلِهَا وَبَرِّهَا وَبَحْرِهَا وَعَنِّي وَعَنْ وَالِدَيَّ",
+   "en": "its plains and its mountains, its land and its sea, and on behalf of me and my parents,"
+  },
+  {
+   "ar": "مِنَ الصَّلَوَاتِ زِنَةَ عَرْشِ اللَّهِ وَمِدَادَ كَلِمَاتِهِ وَمَا أَحْصَاهُ عِلْمُهُ وَأَحَاطَ بِهِ كِتَابُهُ",
+   "en": "blessings equal to the weight of Allah's Throne and the ink of His words, as many as His knowledge has counted and His Book has encompassed.",
+   "var": "Some editions swap the two: وَمَا أَحْصَاهُ كِتَابُهُ وَأَحَاطَ بِهِ عِلْمُهُ.",
+   "var_ar": "في بعض النسخ: «وَمَا أَحْصَاهُ كِتَابُهُ وَأَحَاطَ بِهِ عِلْمُهُ»."
+  },
+  {
+   "ar": "اللَّهُمَّ إِنِّي أُجَدِّدُ لَهُ فِي صَبِيحَةِ يَوْمِي هَذَا وَمَا عِشْتُ مِنْ أَيَّامِي",
+   "en": "O Allah, I renew for him, on the morning of this day of mine and for all the days I live,"
+  },
+  {
+   "ar": "عَهْداً وَعَقْداً وَبَيْعَةً لَهُ فِي عُنُقِي لَا أَحُولُ عَنْهَا وَلَا أَزُولُ أَبَداً",
+   "en": "a covenant, a pact and a pledge of allegiance to him upon my neck, from which I will never turn and never waver.",
+   "var": "Some editions read عَنْهُ instead of عَنْهَا.",
+   "var_ar": "في بعض النسخ: «عَنْهُ» بدل «عَنْهَا»."
+  },
+  {
+   "ar": "اللَّهُمَّ اجْعَلْنِي مِنْ أَنْصَارِهِ وَأَعْوَانِهِ وَالذَّابِّينَ عَنْهُ",
+   "en": "O Allah, make me among his supporters and helpers, and those who defend him,"
+  },
+  {
+   "ar": "وَالْمُسَارِعِينَ إِلَيْهِ فِي قَضَاءِ حَوَائِجِهِ وَالْمُمْتَثِلِينَ لِأَوَامِرِهِ",
+   "en": "who hasten to him to fulfil his needs, who carry out his commands,",
+   "var": "وَالْمُمْتَثِلِينَ لِأَوَامِرِهِ is marked in some editions as found only in one manuscript.",
+   "var_ar": "«وَالْمُمْتَثِلِينَ لِأَوَامِرِهِ» من نسخة، كما في بعض الطبعات."
+  },
+  {
+   "ar": "وَالْمُحَامِينَ عَنْهُ وَالسَّابِقِينَ إِلَى إِرَادَتِهِ وَالْمُسْتَشْهَدِينَ بَيْنَ يَدَيْهِ",
+   "en": "who protect him, who race to do what he wills, and who are martyred before him."
+  },
+  {
+   "ar": "اللَّهُمَّ إِنْ حَالَ بَيْنِي وَبَيْنَهُ الْمَوْتُ الَّذِي جَعَلْتَهُ عَلَى عِبَادِكَ حَتْماً مَقْضِيّاً،",
+   "en": "O Allah, if death — which You have made a binding decree upon Your servants — comes between me and him,"
+  },
+  {
+   "ar": "فَأَخْرِجْنِي مِنْ قَبْرِي مُؤْتَزِراً كَفَنِي شَاهِراً سَيْفِي مُجَرِّداً قَنَاتِي",
+   "en": "then bring me out of my grave, wrapped in my shroud, my sword drawn, my spear bared,"
+  },
+  {
+   "ar": "مُلَبِّياً دَعْوَةَ الدَّاعِي فِي الْحَاضِرِ وَالْبَادِي",
+   "en": "answering the call of the caller among the town-dwellers and the desert-dwellers."
+  },
+  {
+   "ar": "اللَّهُمَّ أَرِنِي الطَّلْعَةَ الرَّشِيدَةَ وَالْغُرَّةَ الْحَمِيدَةَ وَاكْحُلْ نَاظِرِي بِنَظْرَةٍ مِنِّي إِلَيْهِ",
+   "en": "O Allah, show me the rightly guided countenance and the praiseworthy brow, and brighten my eyes with a glance at him."
+  },
+  {
+   "ar": "وَعَجِّلْ فَرَجَهُ وَسَهِّلْ مَخْرَجَهُ وَأَوْسِعْ مَنْهَجَهُ وَاسْلُكْ بِي مَحَجَّتَهُ",
+   "en": "Hasten his relief, ease his coming forth, widen his way, and lead me along his path."
+  },
+  {
+   "ar": "وَأَنْفِذْ أَمْرَهُ وَاشْدُدْ أَزْرَهُ وَاعْمُرِ اللَّهُمَّ بِهِ بِلادَكَ وَأَحْيِ بِهِ عِبَادَكَ",
+   "en": "Carry out his command and strengthen his back; through him, O Allah, bring Your lands to life and revive Your servants,"
+  },
+  {
+   "ar": "فَإِنَّكَ قُلْتَ وَقَوْلُكَ الْحَقُّ ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ",
+   "en": "for You have said, and Your word is the truth: “Corruption has appeared on land and sea because of what people's hands have earned.”",
+   "var": "Qurʾān, al-Rūm 30:41.",
+   "var_ar": "من سورة الروم، الآية ٤١."
+  },
+  {
+   "ar": "فَأَظْهِرِ اللَّهُمَّ لَنَا وَلِيَّكَ وَابْنَ بِنْتِ نَبِيِّكَ الْمُسَمَّى بِاسْمِ رَسُولِكَ،",
+   "en": "So make manifest for us, O Allah, Your guardian, the son of Your Prophet's daughter, who bears the name of Your Messenger,"
+  },
+  {
+   "ar": "حَتَّى لَا يَظْفَرَ بِشَيْءٍ مِنَ الْبَاطِلِ إِلَّا مَزَّقَهُ وَيُحِقَّ الْحَقَّ وَيُحَقِّقَهُ",
+   "en": "so that he finds no falsehood without tearing it apart, and establishes the truth and makes it real."
+  },
+  {
+   "ar": "وَاجْعَلْهُ اللَّهُمَّ مَفْزَعاً لِمَظْلُومِ عِبَادِكَ وَنَاصِراً لِمَنْ لَا يَجِدُ لَهُ نَاصِراً غَيْرَكَ",
+   "en": "Make him, O Allah, a refuge for the oppressed among Your servants, and a helper for one who finds no helper but You,"
+  },
+  {
+   "ar": "وَمُجَدِّداً لِمَا عُطِّلَ مِنْ أَحْكَامِ كِتَابِكَ",
+   "en": "a renewer of the rulings of Your Book that have been neglected,"
+  },
+  {
+   "ar": "وَمُشَيِّداً لِمَا وَرَدَ مِنْ أَعْلامِ دِينِكَ وَسُنَنِ نَبِيِّكَ صَلَّى اللَّهُ عَلَيْهِ وَآلِهِ",
+   "en": "and one who raises high the landmarks of Your religion and the ways of Your Prophet that have come down — Allah bless him and his family."
+  },
+  {
+   "ar": "وَاجْعَلْهُ اللَّهُمَّ مِمَّنْ حَصَّنْتَهُ مِنْ بَأْسِ الْمُعْتَدِينَ",
+   "en": "And make him, O Allah, among those You have fortified against the violence of aggressors."
+  },
+  {
+   "ar": "اللَّهُمَّ وَسُرَّ نَبِيَّكَ مُحَمَّداً صَلَّى اللَّهُ عَلَيْهِ وَآلِهِ بِرُؤْيَتِهِ وَمَنْ تَبِعَهُ عَلَى دَعْوَتِهِ",
+   "en": "O Allah, gladden Your Prophet Muhammad — Allah bless him and his family — by the sight of him and of those who follow him in his call,"
+  },
+  {
+   "ar": "وَارْحَمِ اسْتِكَانَتَنَا بَعْدَهُ اللَّهُمَّ اكْشِفْ هَذِهِ الْغُمَّةَ عَنْ هَذِهِ الْأُمَّةِ بِحُضُورِهِ",
+   "en": "and have mercy on our humbled state after him. O Allah, lift this grief from this community through his presence,"
+  },
+  {
+   "ar": "وَعَجِّلْ لَنَا ظُهُورَهُ إِنَّهُمْ يَرَوْنَهُ بَعِيداً وَنَرَاهُ قَرِيباً بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِينَ.",
+   "en": "and hasten his appearance for us. They see it as far off, and we see it as near — by Your mercy, O Most Merciful of the merciful.",
+   "var": "Echoes Qurʾān, al-Maʿārij 70:6–7.",
+   "var_ar": "اقتباس من سورة المعارج، الآيتان ٦–٧."
+  },
+  {
+   "ar": "الْعَجَلَ الْعَجَلَ يَا مَوْلَايَ يَا صَاحِبَ الزَّمَانِ",
+   "en": "Hasten, hasten, O my master, O Master of the Age!",
+   "note": "Said three times, striking the right thigh with the hand each time.",
+   "note_ar": "تُقال ثلاث مرّات مع الضرب على الفخذ الأيمن باليد في كلّ مرّة."
+  }
+ ],
+ "about": {
+  "en": "Mafātīḥ al-Jinān reports from Imam Jaʿfar al-Ṣādiq that whoever supplicates to Allah with this covenant for forty mornings will be among the helpers of the Qāʾim; and if he dies before him, Allah will raise him from his grave. Al-Qummī places it among the devotions Ibn Ṭāwūs records in Miṣbāḥ al-Zāʾir. It is recited each morning.",
+  "ar": "روى في مفاتيح الجنان عن الإمام الصادق عليه السلام: من دعا إلى الله تعالى أربعين صباحاً بهذا العهد كان من أنصار قائمنا، فإن مات قبله أخرجه الله تعالى من قبره. وأورده القمّيّ فيما نقله عن مصباح الزائر للسيّد ابن طاووس. ويُقرأ كلَّ صباح."
+ },
+ "src": "Mafātīḥ al-Jinān (al-Qummī), from Ibn Ṭāwūs's Miṣbāḥ al-Zāʾir. Text checked word by word against two independent digital editions; variants noted.",
+ "tr": "English: Memorize 114 working translation"
+}
