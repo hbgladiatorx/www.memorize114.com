@@ -72,7 +72,7 @@ export default function Today({ classes }) {
       <div className="tiny faint" style={{ margin: '12px 0 6px' }}>{ts('Memory strength now, verse by verse — tap one to open it', 'قوّة الحفظ الآن آيةً آية — اضغط لفتحها')}</div>
       <div className={"heat" + (s.v.length > 99 ? " many" : "")}>{s.v.map((v) => { const c = P.cards[v.a]; const r = retr(c, now); return (
         <i key={v.a} style={{ background: c ? `color-mix(in srgb, ${v.color} ${Math.round(25 + r * 75)}%, var(--paper))` : `color-mix(in srgb, ${v.color} 12%, var(--paper))`, color: r > 0.6 ? '#fff' : v.color }}
-          title={c ? `${Math.round(r * 100)}%` : ''} onClick={() => openVerse(v.a, c ? 'recall' : 'read')}>{toAr(v.a)}</i>); })}</div>
+          title={c ? `${Math.round(r * 100)}%` : ''} onClick={() => openVerse(v.a, c ? 'recall' : 'read')}>{nn(v.a)}</i>); })}</div>
     </div>
 
     {s.kind === 'dua' && s.enrich?.note && <div className="card topline" style={{ '--sec': 'var(--gold)' }}>
@@ -101,7 +101,7 @@ export default function Today({ classes }) {
     {weak.length > 0 && <div className="card topline" style={{ '--sec': 'var(--red)' }}>
       <h2>{ts('Words that keep slipping', 'كلماتٌ تتفلّت')}</h2>
       <div className="row" style={{ direction: 'rtl', gap: 6, marginTop: 6 }}>{weak.slice(0, 12).map(([c, v, i]) => (
-        <button key={v.a + '-' + i} className="tile" style={{ fontSize: 22, '--sec': c >= 2 ? 'var(--red)' : v.color }} onClick={() => openVerse(v.a, 'read')}>{v.w[i]}<sub className="tilesub">{' ' + toAr(v.a) + ' ×' + toAr(c)}</sub></button>))}</div>
+        <button key={v.a + '-' + i} className="tile" style={{ fontSize: 22, '--sec': c >= 2 ? 'var(--red)' : v.color }} onClick={() => openVerse(v.a, 'read')}>{v.w[i]}<sub className="tilesub">{' ' + nn(v.a) + ' ×' + nn(c)}</sub></button>))}</div>
     </div>}
     <MethodCard />
   </>);

@@ -32,7 +32,10 @@ export function Verse({ v, hidden, blank, miss, hint, anchor, diff, cur: curIdx,
         const click = onWord ? () => onWord(i) : peekable && hid ? () => setPeek((p) => new Set(p).add(i)) : undefined;
         return <span key={i}><span className={cls.join(' ')} data-cue={v.cues ? v.cues[i] : ''} onClick={click}>{w}</span>{' '}</span>;
       })}
-      {!noNum && <span className="num" onClick={onNum ? () => onNum(v.a) : undefined}>{' ' + toAr(v.a)} </span>}
+      {!noNum && (v.dua
+        // duʿāʾ passages get a plain numbered dot, never the Qurʾān's āyah-end ornament
+        ? <span className="num dnum" onClick={onNum ? () => onNum(v.a) : undefined}>{nn(v.a)}</span>
+        : <span className="num" onClick={onNum ? () => onNum(v.a) : undefined}>{' ' + toAr(v.a)} </span>)}
     </span>
   );
 }
@@ -62,7 +65,7 @@ export function VerseChips({ active, onPick }) {
     <div className="chips" ref={ref}>
       {s.v.map((v) => (
         <button key={v.a} className={'chip' + (v.a === active ? ' on' : '')} style={{ '--sec': v.color }} onClick={() => onPick(v.a)}>
-          {toAr(v.a)}<span className="bar"><i style={{ width: Math.round(retr(P.cards[v.a], now) * 100) + '%' }} /></span>
+          {nn(v.a)}<span className="bar"><i style={{ width: Math.round(retr(P.cards[v.a], now) * 100) + '%' }} /></span>
         </button>
       ))}
     </div>

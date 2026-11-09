@@ -66,7 +66,7 @@ function DuaMap({ s, open }) {
           <div className="dtiles">{s.v.slice(x.from - 1, x.to).map((v) => { const c = P.cards[v.a]; const r = c ? retr(c, now) : 0; return (
             <button key={v.a} className={'dtile' + (c ? ' on' : '')} title={v.w.slice(0, 4).join(' ')} onClick={() => open(v.a)}
               style={{ flexGrow: v.w.length, '--k': c ? Math.round(30 + r * 70) + '%' : '10%', minWidth: Math.round(18 + 30 * v.w.length / maxW) + 'px' }}>
-              <span>{toAr(v.a)}</span><i dir="rtl">{v.w[0]}</i></button>); })}</div>
+              <span>{nn(v.a)}</span><i dir="rtl">{v.w[0]}</i></button>); })}</div>
         </div>))}</div>
     </div>
   );
