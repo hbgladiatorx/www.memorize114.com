@@ -110,11 +110,20 @@ export default function App() {
 }
 
 const latin = (x) => x.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/^(al|an|ar|as|at|ad|az|ash)-?/, '').replace(/[^a-z]/g, '');
-const arBare = (x) => x.replace(/[ً-ٰٟ]/g, '');
+const arBare = (x) => x.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, '').replace(/[أإآٱ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي').replace(/\s+/g, ' ').trim();
+// Extra search words for the duʿāʾs (common spellings in English and Arabic).
+const DUA_ALIAS = { 201: 'dua duaa doa supplication kumail kumayl komail komeil kumeil دعاء كميل', 202: 'dua duaa doa supplication ahd ahad al-ahd covenant عهد العهد دعاء' };
 
 function SurahPicker({ onClose }) {
   const [q, setQ] = useState(''); const nav = useNavigate();
-  const hit = (s) => !q || String(s.n) === q || toAr(s.n) === q || latin(s.en).includes(latin(q)) || arBare(s.ar).includes(arBare(q));
+  const qq = q.trim(); const ql = latin(qq); const qa = arBare(qq);
+  const hit = (s) => {
+    if (!qq) return true;
+    if (String(s.n) === qq || toAr(s.n) === qq) return true;
+    if (ql && (latin(s.en).includes(ql) || (DUA_ALIAS[s.n] || '').split(' ').some((w) => latin(w).startsWith(ql)))) return true;
+    if (qa && /[\u0600-\u06FF]/.test(qa) && (arBare(s.ar).includes(qa) || arBare(DUA_ALIAS[s.n] || '').includes(qa))) return true;
+    return false;
+  };
   const list = D.index.filter(hit); const duas = D.duas.filter(hit);
   useEffect(() => { document.querySelector('.slist .on')?.scrollIntoView({ block: 'center' }); }, []);
   const pick = async (n) => { onClose(); await openSurah(n); nav('/'); };
@@ -122,6 +131,13 @@ function SurahPicker({ onClose }) {
     <h2>{tq('Choose a sūrah or duʿāʾ', 'اختر سورة أو دعاء')}</h2>
     <input type="search" autoFocus placeholder={tsq('Search by name or number', 'ابحث بالاسم أو الرقم')} value={q} onChange={(e) => setQ(e.target.value)} />
     <div className="slist">
+      {list.length > 0 && duas.length > 0 && <div className="sgroup">{tq('The Qurʾān · 114 sūrahs', 'القرآن الكريم · ١١٤ سورة')}</div>}
+      {list.map((s) => (
+      <button key={s.n} className={s.n === cur.surah.n ? 'on' : ''} onClick={() => pick(s.n)}>
+        <span className="n">{nn(s.n)}</span>
+        <span><div style={{ fontWeight: 700 }}>{isAr() ? s.ar : s.en}</div><div className="tiny faint">{tsq(`${s.ay} verses · page ${s.p}`, `آياتها ${toAr(s.ay)} · الصفحة ${toAr(s.p)}`)}{GUIDED.has(s.n) && <span className="pill guided" style={{ marginInlineStart: 6 }}>{tsq('guided', 'مع الشرح')}</span>}</div></span>
+        {!isAr() && <span className="ar">{s.ar}</span>}
+      </button>))}
       {duas.length > 0 && <div className="sgroup">{tq('Supplications · duʿāʾ', 'الأدعية')}</div>}
       {duas.map((s) => (
         <button key={s.n} className={'dua' + (s.n === cur.surah.n ? ' on' : '')} onClick={() => pick(s.n)}>
@@ -129,13 +145,8 @@ function SurahPicker({ onClose }) {
           <span><div style={{ fontWeight: 700 }}>{isAr() ? s.ar : s.en}</div><div className="tiny faint">{tsq(`${s.ay} passages · Mafātīḥ al-Jinān`, `${toAr(s.ay)} فقرة · مفاتيح الجنان`)}</div></span>
           {!isAr() && <span className="ar">{s.ar}</span>}
         </button>))}
-      {duas.length > 0 && list.length > 0 && <div className="sgroup">{tq('The Qurʾān · 114 sūrahs', 'القرآن الكريم · ١١٤ سورة')}</div>}
-      {list.map((s) => (
-      <button key={s.n} className={s.n === cur.surah.n ? 'on' : ''} onClick={() => pick(s.n)}>
-        <span className="n">{nn(s.n)}</span>
-        <span><div style={{ fontWeight: 700 }}>{isAr() ? s.ar : s.en}</div><div className="tiny faint">{tsq(`${s.ay} verses · page ${s.p}`, `آياتها ${toAr(s.ay)} · الصفحة ${toAr(s.p)}`)}{GUIDED.has(s.n) && <span className="pill guided" style={{ marginInlineStart: 6 }}>{tsq('guided', 'مع الشرح')}</span>}</div></span>
-        {!isAr() && <span className="ar">{s.ar}</span>}
-      </button>))}</div>
+      {!list.length && !duas.length && <div className="empty small">{tsq('Nothing matches. Try the number, or part of the name.', 'لا نتائج. جرّب الرقم أو جزءًا من الاسم.')}</div>}
+    </div>
   </Sheet>);
 }
 
