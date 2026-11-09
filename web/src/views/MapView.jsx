@@ -13,7 +13,7 @@ export default function MapView() {
   return (<>
     <div className="card topline" style={{ '--sec': 'var(--amber)' }}>
       <h2>{ts('Where each verse sits on the page', 'موضع كل آية في الصفحة')}</h2>
-      <div className="muted small" style={{ marginBottom: 12 }}>{t('Madinah muṣḥaf layout, 15 lines a page (KFGQPC line data). Picture the page while you recite; tap a block to open the verse. Within a shared line the split is approximate.', 'على ترتيب مصحف المدينة، خمسة عشر سطرًا في الصفحة (بيانات مجمّع الملك فهد). تخيّل الصفحة وأنت تقرأ، واضغط على أي آية لفتحها. التقسيم داخل السطر المشترك تقريبي.')}</div>
+      <div className="muted small" style={{ marginBottom: 12 }}>{t('Madinah muṣḥaf layout, 15 lines a page. Picture the page while you recite; tap a block to open the verse. Within a shared line the split is approximate.', 'على ترتيب مصحف المدينة، خمسة عشر سطرًا في الصفحة. تخيّل الصفحة وأنت تقرأ، واضغط على أي آية لفتحها. التقسيم داخل السطر المشترك تقريبي.')}</div>
       <div className="pages">
         {pages.map((p) => {
           const vs = s.v.filter((v) => v.p === p); const first = vs[0];

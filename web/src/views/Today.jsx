@@ -117,10 +117,10 @@ function MethodCard() {
     ['var(--violet)', 'Vanishing cues & first letters. ', 'Words fade in nested steps down to their first letters, then to nothing.'],
     ['var(--amber)', 'One fixed muṣḥaf. ', 'Text, pages and lines follow the Madinah muṣḥaf so your visual memory of the page stays consistent.'],
     ['var(--rose)', 'Mutashābihāt. ', 'Look-alike verses are a leading cause of slips; they are found automatically across the whole Qurʾān and drilled head to head.'],
-    ['var(--teal)', 'Meaning & imagery. ', 'Ali Quli Qarai\'s translation, one anchor word and one picture per verse give each verse a second route into memory.']];
+    ['var(--teal)', 'Meaning & imagery. ', 'A translation, one anchor word and one picture per verse give each verse a second route into memory.']];
   return (<details className="card method topline" style={{ '--sec': 'var(--violet)' }}>
     <summary style={{ cursor: 'pointer', fontWeight: 800, color: 'var(--violet)' }}>{ts('▸ The method behind this app', '◂ المنهج الذي يقوم عليه التطبيق')}</summary>
     <ul className="small muted" style={{ paddingInlineStart: 18, marginTop: 10 }}>{items.map(([c, b, x], i) => <li key={i}><b style={{ color: c }}>{t(b, b)}</b>{t(x, x)}</li>)}</ul>
-    <div className="tiny faint">{t(`Text: ${D.src}. Translation: Ali Quli Qarai, via Tanzil.net. Recitation streamed from everyayah.com. A teacher hearing your recitation (talaqqī) remains irreplaceable for tajwīd; this app is for between lessons.`, 'النص: بيانات مصحف المدينة من مجمّع الملك فهد (الإصدار ١٨). الترجمة الإنجليزية: علي قلي قرائي عبر Tanzil.net. التلاوات من everyayah.com. ويبقى التلقّي على مُقرئٍ متقن لا غنى عنه لضبط التجويد؛ وهذا التطبيق لما بين الدروس.')}</div>
+    <div className="tiny faint">{t('A teacher hearing your recitation (talaqqī) remains irreplaceable for tajwīd; this app is for between lessons.', 'ويبقى التلقّي على مُقرئٍ متقن لا غنى عنه لضبط التجويد؛ وهذا التطبيق لما بين الدروس.')}</div>
   </details>);
 }

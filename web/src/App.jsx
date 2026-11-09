@@ -146,7 +146,7 @@ function Settings({ onClose }) {
     <select value={st.reciter} onChange={(e) => setS('reciter', e.target.value)} style={{ width: '100%' }}>
       {Object.entries(RECITERS).map(([k, r]) => <option key={k} value={k}>{isAr() ? r.ar : r.en}</option>)}
     </select>
-    <div className="tiny faint" style={{ marginTop: 4 }}>{t('Every verse of the Qurʾān, streamed from everyayah.com. Al-Ḥuṣarī\'s muʿallim recitation is slow and made for memorisation.', 'كل آيات القرآن من موقع everyayah.com. وتلاوة الحُصَري المعلِّم بطيئة ومُعدّة للتحفيظ.')}</div>
+    <div className="tiny faint" style={{ marginTop: 4 }}>{t('Every verse of the Qurʾān. Al-Ḥuṣarī\'s muʿallim recitation is slow and made for memorisation.', 'كل آيات القرآن. وتلاوة الحُصَري المعلِّم بطيئة ومُعدّة للتحفيظ.')}</div>
     <div className="hr" />
     <h3>{ts('Daily plan', 'الخطة اليومية')}</h3>
     <div className="row small">{ts('New verses per day', 'آيات جديدة كل يوم')}<Seg accent="var(--teal)" value={st.newPerDay} onChange={(v) => setS('newPerDay', v)} options={[1, 2, 3, 5, 10].map((n) => [n, nn(n)])} /></div>

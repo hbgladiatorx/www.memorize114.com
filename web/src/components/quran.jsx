@@ -72,10 +72,10 @@ export function Meaning({ s, v }) {
   const qarai = s.tr?.v?.[v.a];
   if (isAr()) return (<>
     {v.ev?.mean_ar && <div className="trans arp" style={{ '--sec': v.color }}>{v.ev.mean_ar}<div className="src">المعنى الإجمالي — صياغة التطبيق</div></div>}
-    {S.settings.showTrAr && qarai && <div className="trans" dir="ltr" style={{ '--sec': v.color, textAlign: 'left' }}>{qarai}<div className="src">Ali Quli Qarai · Tanzil.net</div></div>}
+    {S.settings.showTrAr && qarai && <div className="trans" dir="ltr" style={{ '--sec': v.color, textAlign: 'left' }}>{qarai}</div>}
   </>);
   if (!S.settings.showTr || !qarai) return null;
-  return <div className="trans" style={{ '--sec': v.color }}>{qarai}<div className="src">— Ali Quli Qarai · Tanzil.net</div></div>;
+  return <div className="trans" style={{ '--sec': v.color }}>{qarai}</div>;
 }
 
 /* ---------- audio ---------- */
@@ -225,5 +225,5 @@ export function TrLine({ sn, a, color }) {
   const [txt, setTxt] = useState(null);
   useEffect(() => { let live = true; if (!isAr()) loadTr(sn).then((tr) => live && setTxt(tr?.v?.[a] || '')); return () => { live = false; }; }, [sn, a]);
   if (isAr() || txt === '') return null;
-  return <div className="trans small" style={{ '--sec': color || 'var(--rose)', fontSize: 14 }}>{txt ?? '…'}{txt && <div className="src">— Ali Quli Qarai</div>}</div>;
+  return <div className="trans small" style={{ '--sec': color || 'var(--rose)', fontSize: 14 }}>{txt ?? '…'}</div>;
 }
