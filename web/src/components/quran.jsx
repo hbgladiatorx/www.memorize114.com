@@ -6,6 +6,7 @@ import { cur } from '../lib/cur.js';
 import { review, retr, previewDays } from '../lib/fsrs.js';
 import { t, ts, tsq, nn, isAr, fmtDays, rich } from '../lib/i18n.jsx';
 import { RECITERS, verseUrl, claimAudio, releaseAudio } from '../lib/audio.js';
+import { follow, hasTiming } from '../lib/karaoke.js';
 import { Icon, Seg, toast, useScrollActive } from './ui.jsx';
 
 /* ---------- one verse, word by word ---------- */
@@ -101,10 +102,10 @@ function AudioBarQ({ v }) {
   const start = () => {
     if (handle.current) { handle.current.stop(); return; }
     const au = new Audio(verseUrl(cur.surah.n, v.a, st.reciter)); au.playbackRate = st.rate || 1;
-    let n = 0, timer, dead = false;
-    const h = { stop: () => { dead = true; au.pause(); clearTimeout(timer); setPlaying(false); setInfo(''); releaseAudio(h); handle.current = null; } };
+    let n = 0, timer, dead = false, unfollow = () => {};
+    const h = { stop: () => { dead = true; au.pause(); clearTimeout(timer); unfollow(); setPlaying(false); setInfo(''); releaseAudio(h); handle.current = null; } };
     handle.current = h; claimAudio(h); setPlaying(true);
-    const go = () => { if (dead) return; n++; setInfo(`${nn(n)} / ${nn(st.rep)}`); au.currentTime = 0; au.play().catch(() => { toast(ts('Audio could not play — check your connection', 'تعذّر تشغيل التلاوة — تحقّق من الاتصال')); h.stop(); }); };
+    const go = () => { if (dead) return; n++; setInfo(`${nn(n)} / ${nn(st.rep)}`); au.currentTime = 0; unfollow(); unfollow = follow(au, cur.surah.n, v.a, st.reciter); au.play().catch(() => { toast(ts('Audio could not play — check your connection', 'تعذّر تشغيل التلاوة — تحقّق من الاتصال')); h.stop(); }); };
     au.onended = () => {
       if (n >= st.rep) { h.stop(); bumpRead(v.a, st.rep); return; }
       if (st.echo) { setInfo(ts('Your turn — recite it back', 'دورك — ردِّد الآية')); timer = setTimeout(go, (au.duration * 1000) / (st.rate || 1) + 600); }
@@ -121,7 +122,7 @@ function AudioBarQ({ v }) {
       <button className={'btn sm' + (st.echo ? ' primary' : '')} style={{ '--accent': 'var(--violet)' }} title={ts('Pause after each play so you can recite it back', 'توقّف بعد كل تشغيل لتردّد الآية')} onClick={() => setS('echo', !st.echo)}>{ts('Echo', 'ترديد')}</button>
       <Seg accent="var(--blue)" value={st.rate} onChange={(r) => setS('rate', r)} options={[0.75, 1, 1.25].map((r) => [r, nn(r) + '×'])} />
       <span className="tiny faint">{info}</span>
-      <div className="tiny reciter">♪ {t(RECITERS[st.reciter]?.en || '', RECITERS[st.reciter]?.ar || '')}</div>
+      <div className="tiny reciter">♪ {t(RECITERS[st.reciter]?.en || '', RECITERS[st.reciter]?.ar || '')}{' · '}{hasTiming(st.reciter, cur.surah.n) ? ts('words light up as they are recited', 'تتلوّن الكلمات مع التلاوة') : ts('word-by-word highlighting comes with al-ʿAfāsī', 'تلوين الكلمات مع التلاوة متاح بصوت العفاسي')}</div>
     </div>
   );
 }
@@ -136,12 +137,13 @@ function SurahPlayerQ({ s, onVerse }) {
   useEffect(() => () => handle.current?.stop(), [s]);
   const start = () => {
     if (handle.current) { handle.current.stop(); return; }
-    let i = 0, dead = false; const au = new Audio(); au.playbackRate = S.settings.rate || 1;
-    const h = { stop: () => { dead = true; au.pause(); setPlaying(false); setAt(0); onVerse(0); releaseAudio(h); handle.current = null; } };
+    let i = 0, dead = false, unfollow = () => {}; const au = new Audio(); au.playbackRate = S.settings.rate || 1;
+    const h = { stop: () => { dead = true; au.pause(); unfollow(); setPlaying(false); setAt(0); onVerse(0); releaseAudio(h); handle.current = null; } };
     handle.current = h; claimAudio(h); setPlaying(true);
     const next = () => {
       if (dead) return; if (i >= s.v.length) { h.stop(); return; }
       const v = s.v[i++]; au.src = verseUrl(s.n, v.a, S.settings.reciter); setAt(v.a); onVerse(v.a);
+      unfollow(); unfollow = follow(au, s.n, v.a, S.settings.reciter);
       au.play().catch(() => h.stop());
     };
     au.onended = () => setTimeout(next, 250);
