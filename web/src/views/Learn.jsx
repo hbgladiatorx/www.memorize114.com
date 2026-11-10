@@ -3,7 +3,7 @@ import { toAr } from '../lib/arabic.js';
 import { S, prog, persist, logActivity } from '../lib/store.js';
 import { cur, set } from '../lib/cur.js';
 import { t, ts, tq, nn, isAr, rich, richAr } from '../lib/i18n.jsx';
-import { Verse, SurahHead, SectionTag, VerseChips, Meaning, AudioBar, SurahPlayer, ReciteCheck, fadeHidden } from '../components/quran.jsx';
+import { Verse, SurahHead, SectionTag, VerseChips, Meaning, AudioBar, SurahPlayer, ReciteCheck, fadeHidden, Translit } from '../components/quran.jsx';
 import { Seg } from '../components/ui.jsx';
 
 const STEPS = [
@@ -153,9 +153,9 @@ function LearnSurah({ s }) {
             <span className={playing === v.a ? 'playing' : ''}>
               <Verse v={v} hidden={fadeHidden(v, f === 5 ? 4 : f, s.n)} blank={f === 5} weak={f === 0 ? P.miss[v.a] : null} peekable resetKey={f} onNum={(a) => set({ mode: 'verse', verse: a, learnStep: 'read' })} />
             </span>
-            {v.dua && f === 0 && !isAr() && (S.settings.showTl || S.settings.showTr) && <div className="tlblock" dir="ltr" style={{ '--sec': v.color }}>
-              {S.settings.showTl && v.tl && <div className="tl">{v.tl.join(' ')}</div>}
-              {S.settings.showTr && s.tr?.v?.[v.a] && <div className="small muted">{s.tr.v[v.a]}</div>}
+            {f === 0 && !isAr() && (S.settings.showTl || (v.dua && S.settings.showTr)) && <div className="tlblock" dir="ltr" style={{ '--sec': v.color }}>
+              <Translit v={v} />
+              {S.settings.showTr && v.dua && s.tr?.v?.[v.a] && <div className="small muted">{s.tr.v[v.a]}</div>}
             </div>}
           </span>);
         })}

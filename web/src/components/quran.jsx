@@ -73,10 +73,16 @@ export function VerseChips({ active, onPick }) {
   );
 }
 
+// Transliteration, word by word, so follow-along highlighting can light it in step with the Arabic.
+export function Translit({ v }) {
+  if (isAr() || !S.settings.showTl || !v.tl) return null;
+  return <div className="tl" data-a={v.a} style={{ '--sec': v.color }}>{v.tl.map((x, i) => <span key={i}><span className="tw">{x}</span>{' '}</span>)}</div>;
+}
+
 export function Meaning({ s, v }) {
   const qarai = s.tr?.v?.[v.a];
   if (s.kind === 'dua') return (<>
-    {!isAr() && S.settings.showTl && v.tl && <div className="tl" style={{ '--sec': v.color }}>{v.tl.join(' ')}</div>}
+    <Translit v={v} />
     {!isAr() && S.settings.showTr && qarai && <div className="trans" style={{ '--sec': v.color }}>{qarai}</div>}
     {(v.note || v.var) && <div className="note small">{v.note && <div>{isAr() ? v.note_ar : v.note}</div>}{v.var && <div><b>{tsq('Note  ', 'تنبيه  ')}</b>{isAr() ? v.var_ar : rich(v.var)}</div>}</div>}
   </>);
@@ -84,8 +90,10 @@ export function Meaning({ s, v }) {
     {v.ev?.mean_ar && <div className="trans arp" style={{ '--sec': v.color }}>{v.ev.mean_ar}<div className="src">المعنى الإجمالي — صياغة التطبيق</div></div>}
     {S.settings.showTrAr && qarai && <div className="trans" dir="ltr" style={{ '--sec': v.color, textAlign: 'left' }}>{qarai}</div>}
   </>);
-  if (!S.settings.showTr || !qarai) return null;
-  return <div className="trans" style={{ '--sec': v.color }}>{qarai}</div>;
+  return (<>
+    <Translit v={v} />
+    {S.settings.showTr && qarai && <div className="trans" style={{ '--sec': v.color }}>{qarai}</div>}
+  </>);
 }
 
 /* ---------- audio ---------- */

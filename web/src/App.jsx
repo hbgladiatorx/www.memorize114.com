@@ -167,7 +167,7 @@ function Settings({ onClose }) {
     </label>
     {!isAr() && <label className="row small" style={{ marginTop: 6 }}>
       <input type="checkbox" checked={st.showTl} onChange={(e) => setS('showTl', e.target.checked)} />
-      {tq('Show transliteration (duʿāʾ)', '')}
+      {tq('Show transliteration', '')}
     </label>}
     <div className="hr" />
     <h3>{ts('Recitation', 'التلاوة')}</h3>
@@ -186,5 +186,28 @@ function Settings({ onClose }) {
       : <div className="note">{ts(`Erase all progress for ${cur.surah.en}? `, `أتمحو كل التقدّم في سورة ${cur.surah.ar}؟ `)}
         <button className="btn sm" style={{ color: 'var(--red)' }} onClick={() => { resetSurah(cur.surah.n); setConfirmReset(false); toast(ts('Progress erased', 'مُحي التقدّم')); }}>{ts('Erase', 'امحُ')}</button>{' '}
         <button className="btn sm ghost" onClick={() => setConfirmReset(false)}>{ts('Cancel', 'إلغاء')}</button></div>}
+    <div className="hr" />
+    <Credits />
   </Sheet>);
+}
+
+// Sources and credits — some licences (Tanzil, CC BY) ask for attribution.
+const CREDITS = [
+  ['Qurʾān text and font', 'نصّ القرآن والخط', 'King Fahd Glorious Qurʾān Printing Complex — Uthmanic Hafs script', 'مجمع الملك فهد لطباعة المصحف الشريف — خط حفص العثماني', 'https://qurancomplex.gov.sa'],
+  ['English translation', 'الترجمة الإنجليزية', 'ʿAlī Qulī Qarāʾī, via Tanzil.net', 'علي قلي قرائي، عبر موقع تنزيل', 'https://tanzil.net/trans/'],
+  ['Recitations', 'التلاوات', 'EveryAyah.com — Mishary al-ʿAfāsī, al-Ḥuṣarī, al-Minshāwī', 'موقع EveryAyah — مشاري العفاسي، الحُصَري، المنشاوي', 'https://everyayah.com'],
+  ['Word timings for follow-along', 'توقيت الكلمات مع التلاوة', 'quran-align by Collin Fair, licensed CC BY 4.0', 'مشروع quran-align لكولن فير، برخصة CC BY 4.0', 'https://github.com/cpfair/quran-align'],
+  ['Duʿāʾ texts', 'نصوص الأدعية', 'Mafātīḥ al-Jinān, Shaykh ʿAbbās al-Qummī', 'مفاتيح الجنان، الشيخ عبّاس القمّي', null],
+  ['Transliteration', 'الكتابة اللاتينية', 'Memorize 114, checked word by word against the Quranic Arabic Corpus', 'من إعداد Memorize 114، رُوجعت كلمةً كلمةً على مدوّنة القرآن العربية', 'https://corpus.quran.com'],
+  ['Revision scheduling', 'جدولة المراجعة', 'FSRS, the open spaced-repetition algorithm', 'خوارزمية FSRS المفتوحة للتكرار المتباعد', 'https://github.com/open-spaced-repetition'],
+];
+function Credits() {
+  return (<div className="credits">
+    <h3>{tsq('Sources & credits', 'المصادر والشكر')}</h3>
+    {CREDITS.map(([en, ar, wen, war, url]) => (
+      <div key={en} className="credit">
+        <b>{isAr() ? ar : en}</b>
+        <span>{url ? <a href={url} target="_blank" rel="noreferrer">{isAr() ? war : wen}</a> : (isAr() ? war : wen)}</span>
+      </div>))}
+  </div>);
 }

@@ -315,3 +315,13 @@ select{width:auto}
   background-image:linear-gradient(to left,var(--sec,var(--green)) var(--p,0%),color-mix(in srgb,var(--ink) 55%,transparent) var(--p,0%));
   text-shadow:0 0 18px color-mix(in srgb,var(--sec,var(--green)) 35%,transparent)}
 .w.k-now::before{content:"";position:absolute;inset:auto 0 -.12em 0;height:3px;border-radius:2px;background:linear-gradient(to left,var(--sec,var(--green)) var(--p,0%),transparent var(--p,0%))}
+/* transliteration words follow the recitation too (left to right) */
+.tw{border-radius:4px;transition:color .15s,opacity .2s}
+.tw.k-wait{opacity:.5}
+.tw.k-done{color:var(--sec,var(--green));opacity:1}
+.tw.k-now{opacity:1;color:transparent;-webkit-background-clip:text;background-clip:text;font-weight:700;
+  background-image:linear-gradient(to right,var(--sec,var(--green)) var(--p,0%),color-mix(in srgb,var(--ink) 70%,transparent) var(--p,0%))}
+.credits h3{margin-bottom:6px}
+.credit{display:flex;flex-direction:column;gap:1px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.credit b{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal)}
+.credit a{color:var(--ink2,var(--ink));text-decoration:none;border-bottom:1px dotted currentColor}

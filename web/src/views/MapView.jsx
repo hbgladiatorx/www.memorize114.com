@@ -29,7 +29,7 @@ export default function MapView() {
           return (<div key={v.a}>{head}
             <div className="stn" data-n={nn(v.a)} style={{ '--sec': v.color }} onClick={() => open(v.a)}>
               <div className="row" style={{ gap: 6 }}><span className="a" dir="rtl">{word}</span>{!isAr() && v.ev?.anchor_en && <span className="en-gloss small">“{v.ev.anchor_en}”</span>}</div>
-              {!isAr() && !v.ev && v.tl && S.settings.showTl && <div className="tl small">{v.tl.slice(0, 2).join(' ')} …</div>}
+              {!isAr() && v.tl && S.settings.showTl && <div className="tl small">{v.tl.slice(0, 2).join(' ')} …</div>}
               {!isAr() && !v.ev && S.settings.showTr && s.tr?.v?.[v.a] && <div className="small muted clamp1">{s.tr.v[v.a]}</div>}
               {v.ev && <div className="small muted">{v.ev.icon}{'  '}{isAr() ? v.ev.hook_ar : rich(v.ev.hook)}</div>}
             </div>
