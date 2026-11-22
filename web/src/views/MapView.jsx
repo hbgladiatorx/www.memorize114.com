@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MushafPage } from '../components/Mushaf.jsx';
+import { MindMap } from '../components/MindMap.jsx';
 import { S, logActivity, prog } from '../lib/store.js';
 import { retr } from '../lib/fsrs.js';
 import { Seg } from '../components/ui.jsx';
@@ -16,6 +17,8 @@ export default function MapView() {
   const pages = [...new Set(s.v.map((v) => v.p))];
   let lastSec = null;
   return (<>
+    <MindMap s={s} open={open} />
+
     {s.kind === 'dua' ? <DuaMap s={s} open={open} /> : <PageMap key={s.n} s={s} pages={pages} open={open} />}
 
     <div className="card topline" style={{ '--sec': 'var(--violet)' }}>

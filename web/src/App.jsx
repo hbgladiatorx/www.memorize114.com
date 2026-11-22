@@ -196,6 +196,7 @@ const CREDITS = [
   ['Qurʾān text and font', 'نصّ القرآن والخط', 'King Fahd Glorious Qurʾān Printing Complex — Uthmanic Hafs script', 'مجمع الملك فهد لطباعة المصحف الشريف — خط حفص العثماني', 'https://qurancomplex.gov.sa'],
   ['English translation', 'الترجمة الإنجليزية', 'ʿAlī Qulī Qarāʾī, via Tanzil.net', 'علي قلي قرائي، عبر موقع تنزيل', 'https://tanzil.net/trans/'],
   ['Recitations', 'التلاوات', 'EveryAyah.com — Mishary al-ʿAfāsī, al-Ḥuṣarī, al-Minshāwī', 'موقع EveryAyah — مشاري العفاسي، الحُصَري، المنشاوي', 'https://everyayah.com'],
+  ['Rukūʿ sections for the mind map outline', 'تقسيم الركوعات في خريطة الذهن', 'Tanzil Qurʾān metadata, licensed CC BY 3.0', 'بيانات مشروع تنزيل، برخصة CC BY 3.0', 'https://tanzil.net/docs/quran_metadata'],
   ['Word timings for follow-along', 'توقيت الكلمات مع التلاوة', 'quran-align by Collin Fair, licensed CC BY 4.0', 'مشروع quran-align لكولن فير، برخصة CC BY 4.0', 'https://github.com/cpfair/quran-align'],
   ['Duʿāʾ texts', 'نصوص الأدعية', 'Mafātīḥ al-Jinān, Shaykh ʿAbbās al-Qummī', 'مفاتيح الجنان، الشيخ عبّاس القمّي', null],
   ['Transliteration', 'الكتابة اللاتينية', 'Memorize 114, checked word by word against the Quranic Arabic Corpus', 'من إعداد Memorize 114، رُوجعت كلمةً كلمةً على مدوّنة القرآن العربية', 'https://corpus.quran.com'],

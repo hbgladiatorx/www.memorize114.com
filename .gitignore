@@ -3,3 +3,4 @@ web/dist/
 server/.env
 .DS_Store
 *.log
+__pycache__/
