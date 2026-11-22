@@ -57,8 +57,10 @@ export function MushafPage({ s, page, mode = 'text', focus, reveal, onPick }) {
     };
     fit();
     const ro = new ResizeObserver(fit); ro.observe(el);
-    return () => ro.disconnect();
-  }, [layout]);
+    // Re-fit once a muṣḥaf font finishes loading (fonts load on first use).
+    document.fonts?.ready.then(fit); document.fonts?.addEventListener?.('loadingdone', fit);
+    return () => { ro.disconnect(); document.fonts?.removeEventListener?.('loadingdone', fit); };
+  }, [layout, s.v[0]?.w]);
   const byA = Object.fromEntries(s.v.map((v) => [v.a, v]));
   return (
     <div className={`mpage mode-${mode}`}>

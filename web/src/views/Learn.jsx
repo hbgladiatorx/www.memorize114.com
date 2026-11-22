@@ -49,7 +49,7 @@ function LearnVerse({ s }) {
           </div>} />
       </>)}
       {cur.learnStep === 'link' && (v.a === 1 ? (
-        <div className="empty small">{(s.kind === 'dua' ? tq('Passage 1 opens the duʿāʾ — link it to its name instead: say the name, then go straight into ', 'الفقرة الأولى هي مطلع الدعاء؛ فاربطها باسمه: اذكر اسمه ثم ادخل مباشرة في ') : t('Verse 1 has no previous verse in this sūrah — link it to the sūrah title and basmala instead: say them, then go straight into ', 'ليس قبل الآية الأولى آيةٌ في هذه السورة؛ فاربطها باسم السورة والبسملة: اقرأهما ثم ادخل مباشرة في '))}<span className="ar-inline">{v.w.slice(0, 3).join(' ')}</span>.</div>
+        <div className="empty small">{(s.kind === 'dua' ? tq('Passage 1 opens the duʿāʾ — link it to its name instead: say the name, then go straight into ', 'الفقرة الأولى هي مطلع الدعاء؛ فاربطها باسمه: اذكر اسمه ثم ادخل مباشرة في ') : t('Verse 1 has no previous verse in this sūrah — link it to the sūrah title and basmala instead: say them, then go straight into ', 'ليس قبل الآية الأولى آيةٌ في هذه السورة؛ فاربطها باسم السورة والبسملة: اقرأهما ثم ادخل مباشرة في '))}<span className="ar-inline qw">{v.w.slice(0, 3).join(' ')}</span>.</div>
       ) : (<>
         <div className="tiny faint" style={{ marginBottom: 6 }}>{ts('Junctions are where recitation breaks down. The end of the previous verse is shown faintly; recite on into this one.', 'مواضع الانتقال بين الآيات هي حيث يتعثّر الحافظ. نهاية الآية السابقة ظاهرة بلونٍ خافت؛ واصل القراءة إلى هذه الآية.')}</div>
         <ReciteCheck verses={[v]} limitFirstChunk noGrade contextBefore={(vv) => s.v[vv.a - 2]} />
@@ -77,7 +77,7 @@ function ReadStep({ s, v, P }) {
       <div className="hook">
         <div className="ic" style={{ '--sec': v.color }}>{v.ev.icon}</div>
         <div>
-          <div className="lab">{ts('MEMORY ANCHOR · ', 'الكلمة المفتاح · ')}<span className="ar-inline" style={{ color: v.color }}>{v.w[v.ev.anchor]}</span>{!isAr() && v.ev.anchor_en && <span className="en-gloss" style={{ textTransform: 'none', letterSpacing: 0 }}> “{v.ev.anchor_en}”</span>}</div>
+          <div className="lab">{ts('MEMORY ANCHOR · ', 'الكلمة المفتاح · ')}<span className="ar-inline qw" style={{ color: v.color }}>{v.w[v.ev.anchor]}</span>{!isAr() && v.ev.anchor_en && <span className="en-gloss" style={{ textTransform: 'none', letterSpacing: 0 }}> “{v.ev.anchor_en}”</span>}</div>
           {isAr() ? v.ev.hook_ar : rich(v.ev.hook)}
         </div>
       </div>

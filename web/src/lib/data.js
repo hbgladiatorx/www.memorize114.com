@@ -2,8 +2,9 @@
 // verses, Qarai's translation (Tanzil.net), and the hand-written guided layers.
 // Duʿāʾs (n 201+) use the same shape without page data: segments instead of verses.
 import { autoChunks, cueOf } from './arabic.js';
+import { mapWord, smartWords } from './qfont.js';
 
-export const D = { index: null, duas: [], basmala: null, src: '', surahs: {}, trs: {}, mode: 'quran' };
+export const D = { index: null, duas: [], basmala: null, src: '', surahs: {}, trs: {}, mode: 'quran', qf: 'hafs' };
 const pad3 = (n) => String(n).padStart(3, '0');
 
 export async function loadIndex() {
@@ -34,14 +35,32 @@ export async function loadSurah(n) {
     const ev = s.enrich?.verses?.[v.a];
     v.chunks = ev?.chunks || v.c || autoChunks(v.w);
     if (s.kind === 'dua') { v.dua = true; v.var = ev?.var || null; v.var_ar = ev?.var_ar || null; v.note = ev?.note || null; v.note_ar = ev?.note_ar || null; }
-    v.cues = v.w.map((w, i) => cueOf(w, v.n[i]));
     const sec = s.enrich?.sections?.find((x) => v.a >= x.from && v.a <= x.to);
     v.color = sec ? sec.color : PALETTE[pages.indexOf(v.p) % PALETTE.length];
     v.sec = sec || null;
     v.ev = s.kind === 'dua' ? null : ev || null;
   });
+  await applyFont(s);
   D.surahs[n] = s;
   return s;
+}
+
+// Rewrite the displayed words for the chosen muṣḥaf font (see qfont.js). The KFGQPC v18
+// words stay in v.w0; search, timings and transliteration never look at v.w.
+async function applyFont(s) {
+  const f = s.kind === 'dua' ? 'hafs' : D.qf;
+  const hs = f === 'smart' ? await smartWords(s.n) : null;
+  s.v.forEach((v) => {
+    if (!v.w0) v.w0 = v.w;
+    v.w = hs?.[v.a - 1] || v.w0.map((w) => mapWord(w, f));
+    v.cues = (hs ? v.w0 : v.w).map((w, i) => cueOf(w, v.n[i]));
+    (v.sim || []).forEach((o) => { if (!o.w0) o.w0 = o.w; o.w = o.w0.map((w) => mapWord(w, f)); });
+  });
+}
+
+export async function setQuranFont(f) {
+  D.qf = f;
+  await Promise.all(Object.values(D.surahs).map(applyFont));
 }
 
 export const surahMeta = (n) => (isDua(n) ? D.duas.find((d) => d.n === n) : D.index[n - 1]);

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
-import { S, useStore, persist, loadUser, resetSurah } from './lib/store.js';
+import { S, useStore, persist, loadUser, resetSurah, emit } from './lib/store.js';
 import { cur, openSurah } from './lib/cur.js';
-import { D, loadIndex, GUIDED, isDua } from './lib/data.js';
+import { D, loadIndex, GUIDED, isDua, setQuranFont } from './lib/data.js';
+import { QFONTS, QFAMILY, qfSample } from './lib/qfont.js';
 import { api } from './lib/api.js';
 import { RECITERS, stopAudio } from './lib/audio.js';
 import { toAr } from './lib/arabic.js';
@@ -35,6 +36,7 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
+      D.qf = S.settings.qf || 'hafs'; document.documentElement.dataset.qf = D.qf;
       try { await loadIndex(); await openSurah(S.settings.surah || 62); setReady(true); } catch { setFailed(true); }
       loadUser();
     })();
@@ -53,6 +55,8 @@ export default function App() {
     const ar = isAr();
     document.documentElement.lang = ar ? 'ar' : 'en'; document.documentElement.dir = ar ? 'rtl' : 'ltr';
     document.documentElement.style.setProperty('--ar-size', S.settings.size + 'px');
+    const qf = S.settings.qf || 'hafs'; document.documentElement.dataset.qf = qf;
+    if (ready && qf !== D.qf) setQuranFont(qf).then(emit);
     document.title = ar ? 'حِفظ — حفظ القرآن الكريم · memorize114' : 'Memorize 114 — Qurʾān memorisation';
   });
   useEffect(() => { stopAudio(); window.scrollTo(0, 0); }, [loc.pathname]);
@@ -170,6 +174,15 @@ function Settings({ onClose }) {
       {tq('Show transliteration', '')}
     </label>}
     <div className="hr" />
+    <h3>{ts('Muṣḥaf font', 'خط المصحف')}</h3>
+    <div className="qfonts">{QFONTS.map((f) => (
+      <button key={f.id} className={'qfont' + ((st.qf || 'hafs') === f.id ? ' on' : '')} onClick={() => setS('qf', f.id)}>
+        <span className={"qfs " + f.id} dir="rtl" style={{ fontFamily: QFAMILY[f.id] }}>{qfSample(f.id)}</span>
+        <b>{isAr() ? f.ar : f.en}</b>{!isAr() && <span className="qfa" dir="rtl">{f.ar}</span>}
+        <span className="tiny faint">{isAr() ? f.note_ar : f.note}</span>
+      </button>))}</div>
+    <div className="tiny faint" style={{ marginTop: 4 }}>{t('Changes the Qurʾān text everywhere in the app. Sūrah names and verse numbers stay in Uthmanic Hafs. Duʿāʾs keep their own text.', 'يغيّر خطّ نص القرآن في التطبيق كلّه، وتبقى أسماء السور وأرقام الآيات بخط حفص العثماني، وللأدعية نصّها الخاص.')}</div>
+    <div className="hr" />
     <h3>{ts('Recitation', 'التلاوة')}</h3>
     <select value={st.reciter} onChange={(e) => setS('reciter', e.target.value)} style={{ width: '100%' }}>
       {Object.entries(RECITERS).map(([k, r]) => <option key={k} value={k}>{isAr() ? r.ar : r.en}</option>)}
@@ -194,6 +207,7 @@ function Settings({ onClose }) {
 // Sources and credits — some licences (Tanzil, CC BY) ask for attribution.
 const CREDITS = [
   ['Qurʾān text and font', 'نصّ القرآن والخط', 'King Fahd Glorious Qurʾān Printing Complex — Uthmanic Hafs script', 'مجمع الملك فهد لطباعة المصحف الشريف — خط حفص العثماني', 'https://qurancomplex.gov.sa'],
+  ['Other muṣḥaf fonts', 'خطوط المصحف الأخرى', 'Hafs Smart and ʿUthmān Ṭāhā Naskh — KFGQPC; DigitalKhatt Madina — Amine Anane & Tarteel; Amiri Quran — Khaled Hosny; Aref Ruqaa — Alif Type. The last three under the SIL Open Font License', 'حفص الذكي ونسخ عثمان طه — مجمع الملك فهد؛ الخط الرقمي — أمين عنان وترتيل؛ أميري قرآن — خالد حسني؛ عارف رقعة — ألف تايب. والثلاثة الأخيرة برخصة الخطوط المفتوحة (OFL)', '/fonts/licences/README.txt'],
   ['English translation', 'الترجمة الإنجليزية', 'ʿAlī Qulī Qarāʾī, via Tanzil.net', 'علي قلي قرائي، عبر موقع تنزيل', 'https://tanzil.net/trans/'],
   ['Recitations', 'التلاوات', 'EveryAyah.com — Mishary al-ʿAfāsī, al-Ḥuṣarī, al-Minshāwī', 'موقع EveryAyah — مشاري العفاسي، الحُصَري، المنشاوي', 'https://everyayah.com'],
   ['Rukūʿ sections for the mind map outline', 'تقسيم الركوعات في خريطة الذهن', 'Tanzil Qurʾān metadata, licensed CC BY 3.0', 'بيانات مشروع تنزيل، برخصة CC BY 3.0', 'https://tanzil.net/docs/quran_metadata'],
